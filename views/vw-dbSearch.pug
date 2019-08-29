@@ -1,0 +1,72 @@
+doctype html
+html
+	head
+		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+
+	body
+		include partials/header.pug
+		div.input-field-1
+			h3(style="margin-top: 0")= title
+		
+			form#dbSearch(action='/dbSearch/results' method='POST' accept-charset="UTF-8")
+				thead
+					tr
+						td
+							input#prKy.input-unit-1(type='text', placeholder='enter data', name='prKyPost', value='', style="display: none")
+						td
+							label.input-label-1(for='vndNm') Vendor Name
+							input#vndNm.input-unit-1(type='text', placeholder='enter data', name='vndNmPost', value='')
+						td
+							label.input-label-1(for='ediNm') EDI Name
+							input#ediNm.input-unit-1(type='text', placeholder='enter data', name='ediNmPost', value='')
+						td
+							label.input-label-1(for='issuDt') Issue Date
+							input#issuDt.input-unit-1(type='date', placeholder='enter data', name='issuDtPost', value='')
+						td
+							label.input-label-1(for='ndNwCt') Need New Catalog?
+							input#ndNwCt.input-unit-1(type='text', placeholder='enter data', name='ndNwCtPost', value='')
+						td
+							label.input-label-1(for='updtwLtst') Updated w/ Latest?
+							input#updtwLtst.input-unit-1(type='text', placeholder='enter data', name='updtwLtstPost', value='')
+						td
+							label.input-label-1(for='rptr') Reporter
+							input#rptr.input-unit-1(type='text', placeholder='enter data', name='rptrPost', value='')
+						td
+							label.input-label-1(for='cmnt') Comments
+							input#cmnt.input-unit-1(type='text', placeholder='enter data', name='cmntPost', value='')
+			
+			button(type='submit', form='dbSearch', style="display: block; float: left") Search DB
+
+		div.rslt-tbl-1
+			table#resTbl
+				thead
+					tr
+						th(onclick="sortTable(0)") Primary Key
+						th(onclick="sortTable(1)") Vendor Name
+						th(onclick="sortTable(2)") EDI Name
+						th(onclick="sortTable(3)") Issue Date
+						th(onclick="sortTable(4)") Need New Catalog?
+						th(onclick="sortTable(5)") Updated w/ Latest?
+						th(onclick="sortTable(6)") Reporter
+						th(onclick="sortTable(7)") Comments
+
+				tbody#resTblBdy
+					if searchResRows !== undefined
+						//- - searchResRows.sort();
+						//- - searchResRows.reverse();
+						each elmnt in searchResRows
+								tr
+									td= elmnt.P_K
+									td= elmnt.Vendor
+									td= elmnt.EDI
+									td= elmnt.IssDt
+									td= elmnt.NdNw
+									td= elmnt.Updtd
+									td= elmnt.Rep
+									td= elmnt.Cmnts
+
+
+		//- script(src='/javascripts/dbSearch3.js')
+		script(src='/javascripts/modules/sortTableM0d.js')
+		script(src='/javascripts/modules/tblHiliteM0d.js')
+		script(src='/javascripts/modules/dateCalcM0d.js')

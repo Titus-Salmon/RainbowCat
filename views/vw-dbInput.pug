@@ -1,0 +1,36 @@
+doctype html
+html
+	head
+		link(rel='stylesheet', href='../stylesheets/style.css')
+
+	body
+		include partials/header.pug
+		div.input-field-1
+			h3(style="margin-top: 0")= title
+
+			form#dbInput(action='/dbInput/formPost' method='POST' accept-charset="UTF-8")
+				thead
+					tr
+						td
+							label.input-label-1(for='vndNm') Vendor Name
+							input#vndNm.input-unit-1(type='text', placeholder='enter data', name='vndNmPost', required='', value='')
+						td
+							label.input-label-1(for='ediNm') EDI Name
+							input#ediNm.input-unit-1(type='text', placeholder='enter data', name='ediNmPost', required='', value='')
+						td
+							label.input-label-1(for='issuDt') Issue Date
+							input#issuDt.input-unit-1(type='date', placeholder='enter data', name='issuDtPost', required='', value='')
+						td
+							label.input-label-1(for='ndNwCt') Need New Catalog?
+							input#ndNwCt.input-unit-1(type='text', placeholder='enter data', name='ndNwCtPost', required='', value='')
+						td
+							label.input-label-1(for='updtwLtst') Updated w/ Latest?
+							input#updtwLtst.input-unit-1(type='text', placeholder='enter data', name='updtwLtstPost', required='', value='')
+						td
+							label.input-label-1(for='rptr') Reporter
+							input#rptr.input-unit-1(type='text', placeholder='enter data', name='rptrPost', required='', value='')
+						td
+							label.input-label-1(for='cmnt') Comments
+							input#cmnt.input-unit-1(type='text', placeholder='enter data', name='cmntPost', value='')
+				
+			button(type='submit', form='dbInput', style="display: block; float: left") Submit
