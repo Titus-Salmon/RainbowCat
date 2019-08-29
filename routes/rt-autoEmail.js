@@ -181,6 +181,7 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
           address: autoEmailVendorEmailArray[i]
         },
         bcc: {
+          name: 'titus',
           address: 'titus.salmon@rainbowblossom.com'
         }, // list of receivers
         subject: autoEmailVendorNameArray[i] + ' catalog update request', // Subject line
