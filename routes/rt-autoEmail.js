@@ -179,6 +179,9 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
         to: {
           name: autoEmailVendorNameArray[i],
           address: autoEmailVendorEmailArray[i]
+        },
+        bcc: {
+          address: 'titus.salmon@rainbowblossom.com'
         }, // list of receivers
         subject: autoEmailVendorNameArray[i] + ' catalog update request', // Subject line
         // text: `Hello friends!\n\n Our records indicate that the latest ` + autoEmailVendorNameArray[i] + ` catalog we have is 6 or more months old.
