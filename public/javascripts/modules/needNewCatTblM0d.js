@@ -39,6 +39,7 @@ function highlight_row() {
       issdate.style.backgroundColor = "orange"
     }
     if ((Date.dateDiff('w', cellDate, currentDate) <= 24) ||
+      (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) ||
       (cmnts.innerHTML.toLowerCase().includes('not in edi')) ||
       (cmnts.innerHTML.toLowerCase().includes('get vendor email')) ||
       (cmnts.innerHTML.toLowerCase().includes('discont')) ||
@@ -86,6 +87,9 @@ function highlight_row() {
     }
     if (cmnts.innerHTML.toLowerCase().includes('todo')) {
       cells[i].parentNode.style.backgroundColor = "#ff0000";
+    }
+    if (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) {
+      cells[i].parentNode.style.backgroundColor = "#ffcc99";
     }
 
 
