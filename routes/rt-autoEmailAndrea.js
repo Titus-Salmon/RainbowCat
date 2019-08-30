@@ -239,18 +239,28 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
       console.log('info==>', info)
       console.log('info[\'rejected\'].length==>', info['rejected'].length)
 
-      function populateSentVendors() {
-        // let successfulEmailArray = [];
+      function populateSentVendors() { //if email successfully sent, this will push that particular vendor name into the
+        //successfulEmailArray array
         if (info['rejected'].length <= 0) {
           successfulEmailArray.push(autoEmailVendorNameArray[i]);
         }
       }
       populateSentVendors();
+
+      function updateDBAfterEmailing() { //this will put a comment in the db for each successfully sent email, that will
+        //cause that entry to no longer be displayed as a catalog in need of updating
+        for (let i = 0; i < successfulEmailArray.length; i++) {
+          connection.query("UPDATE rainbowcat SET comments = 'requested cat (auto-email)' WHERE vendorName = '" +
+            successfulEmailArray[i] + "';")
+        }
+      }
+      updateDBAfterEmailing();
     }
 
   }
   main().then(function () { //.then() method used with async functions; waits until after async function complete, THEN do something
-    res.send(successfulEmailArray)
+    // res.send(successfulEmailArray)
+    res.redirect('/emailSuccess');
   }).catch(console.error);
 
 })
