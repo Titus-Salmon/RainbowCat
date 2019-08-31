@@ -1,40 +1,5 @@
 localStorage.clear();
 
-/**We need a way to decode html entities (turn stuff like &amp; back to &). Here is a method to do that,
- * as well as the opposite (encode html entities; i.e. turn & into &amp;)
- *v*/ ///////////////////////////////////////////////////////////////////////////////////////////////////////
-(function (window) {
-  window.htmlentities = {
-    /**
-     * Converts a string to its html characters completely.
-     *
-     * @param {String} str String with unescaped HTML characters
-     **/
-    encode: function (str) {
-      var buf = [];
-
-      for (var i = str.length - 1; i >= 0; i--) {
-        buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
-      }
-
-      return buf.join('');
-    },
-    /**
-     * Converts an html characterSet into its original character.
-     *
-     * @param {String} str htmlSet entities
-     **/
-    decode: function (str) {
-      return str.replace(/&#(\d+);/g, function (match, dec) {
-        return String.fromCharCode(dec);
-      });
-    }
-  };
-})(window);
-/*^*/ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 //begin table highlighter////////////////////////////////////////////////////////////////////
 const ResTblBdy = document.getElementById("resTblBdy");
 let currentDate = new Date();
@@ -193,11 +158,12 @@ function highlight_row() {
     let rowStyle = window.getComputedStyle(rowsArray[r]).getPropertyValue('display');
     console.log('rowStyle==>', rowStyle)
     if (rowStyle != 'none') {
-      receiverEmailAddrArray.push(htmlentities.decode(rowsArray[r].childNodes[9].innerHTML)); //decodes anything like
-      //&amp; to &
-      vendorNameArray.push(unescape(rowsArray[r].childNodes[1].innerHTML)); //decodes anything like
-      //&amp; to &
-      console.log('unescape(rowsArray[r].childNodes[1].innerHTML)==>', unescape(rowsArray[r].childNodes[1].innerHTML))
+      rowsArray[r].childNodes[9].innerHTML.replace(/&amp;/, "&"); //replace &amp; with &
+      receiverEmailAddrArray.push(rowsArray[r].childNodes[9].innerHTML);
+
+      rowsArray[r].childNodes[1].innerHTML.replace(/&amp;/, "&"); //replace &amp; with &
+      vendorNameArray.push(rowsArray[r].childNodes[1].innerHTML);
+      console.log('rowsArray[r].childNodes[1].innerHTML==>', rowsArray[r].childNodes[1].innerHTML)
     }
   }
 
