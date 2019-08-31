@@ -158,8 +158,9 @@ function highlight_row() {
     let rowStyle = window.getComputedStyle(rowsArray[r]).getPropertyValue('display');
     console.log('rowStyle==>', rowStyle)
     if (rowStyle != 'none') {
-      (rowsArray[r].childNodes[9].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
-      receiverEmailAddrArray.push(rowsArray[r].childNodes[9].innerHTML);
+      var receiverEmail_t0d = (rowsArray[r].childNodes[9].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
+      receiverEmailAddrArray.push(receiverEmail_t0d);
+      console.log('receiverEmail_t0d==>', receiverEmail_t0d)
 
       var vendorName_t0d = (rowsArray[r].childNodes[1].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
       vendorNameArray.push(vendorName_t0d);
