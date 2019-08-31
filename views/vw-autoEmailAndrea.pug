@@ -102,40 +102,6 @@ html
 								td= elmnt.Andr
 								td= elmnt.vndemail
 
-		
-
-			table
-				//- thead
-				//- 	tr
-				//- 		th Primary Key
-				//- 		th Vendor Name
-				//- 		th EDI Name
-				//- 		th Issue Date
-				//- 		th Need New Catalog?
-				//- 		th Updated w/ Latest?
-				//- 		th Reporter
-				//- 		th Comments
-				//- 		th Andrea
-				//- 		th Vendor Email
-
-
-
-				tbody
-					if sentEmailRows !== undefined
-						each elmnt in sentEmailRows
-							tr
-								td= elmnt.P_K
-								td= elmnt.Vendor
-								td= elmnt.EDI
-								td= elmnt.IssDt
-								td= elmnt.NdNw
-								td= elmnt.Updtd
-								td= elmnt.Rep
-								td= elmnt.Cmnts
-								td= elmnt.Andr
-								td= elmnt.vndemail
-
-
 
 		//- script(src='/javascripts/autoEmail.js')
 		script(src='/javascripts/modules/sortTableM0d.js')
