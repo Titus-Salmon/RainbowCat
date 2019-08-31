@@ -197,6 +197,7 @@ function highlight_row() {
       //&amp; to &
       vendorNameArray.push(htmlentities.decode(rowsArray[r].childNodes[1].innerHTML)); //decodes anything like
       //&amp; to &
+      console.log('htmlentities.decode(rowsArray[r].childNodes[1].innerHTML)==>', htmlentities.decode(rowsArray[r].childNodes[1].innerHTML))
     }
   }
 
