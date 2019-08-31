@@ -193,11 +193,11 @@ function highlight_row() {
     let rowStyle = window.getComputedStyle(rowsArray[r]).getPropertyValue('display');
     console.log('rowStyle==>', rowStyle)
     if (rowStyle != 'none') {
-      receiverEmailAddrArray.push(htmlentities.decode(rowsArray[r].childNodes[9].innerHTML)); //decodes anything like
+      receiverEmailAddrArray.push(rowsArray[r].childNodes[9].htmlentities.decode(innerHTML)); //decodes anything like
       //&amp; to &
-      vendorNameArray.push(htmlentities.decode(rowsArray[r].childNodes[1].innerHTML)); //decodes anything like
+      vendorNameArray.push(rowsArray[r].childNodes[1].htmlentities.decode(innerHTML)); //decodes anything like
       //&amp; to &
-      console.log('htmlentities.decode(rowsArray[r].childNodes[1].innerHTML)==>', htmlentities.decode(rowsArray[r].childNodes[1].innerHTML))
+      console.log('rowsArray[r].childNodes[1].htmlentities.decode(innerHTML)==>', rowsArray[r].childNodes[1].htmlentities.decode(innerHTML))
     }
   }
 
