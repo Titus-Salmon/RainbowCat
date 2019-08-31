@@ -195,7 +195,8 @@ function highlight_row() {
     if (rowStyle != 'none') {
       receiverEmailAddrArray.push(htmlentities.decode(rowsArray[r].childNodes[9].innerHTML)); //decodes anything like
       //&amp; to &
-      vendorNameArray.push(rowsArray[r].childNodes[1].innerHTML)
+      vendorNameArray.push(htmlentities.decode(rowsArray[r].childNodes[1].innerHTML)); //decodes anything like
+      //&amp; to &
     }
   }
 
