@@ -158,12 +158,12 @@ function highlight_row() {
     let rowStyle = window.getComputedStyle(rowsArray[r]).getPropertyValue('display');
     console.log('rowStyle==>', rowStyle)
     if (rowStyle != 'none') {
-      rowsArray[r].childNodes[9].innerHTML.replace(/&amp;/, "&"); //replace &amp; with &
+      (rowsArray[r].childNodes[9].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
       receiverEmailAddrArray.push(rowsArray[r].childNodes[9].innerHTML);
 
-      rowsArray[r].childNodes[1].innerHTML.replace(/&amp;/, "&"); //replace &amp; with &
-      vendorNameArray.push(rowsArray[r].childNodes[1].innerHTML);
-      console.log('rowsArray[r].childNodes[1].innerHTML==>', rowsArray[r].childNodes[1].innerHTML)
+      var vendorName_t0d = (rowsArray[r].childNodes[1].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
+      vendorNameArray.push(vendorName_t0d);
+      console.log('vendorName_t0d==>', vendorName_t0d)
     }
   }
 
