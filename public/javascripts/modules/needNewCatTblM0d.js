@@ -197,7 +197,7 @@ function highlight_row() {
       //&amp; to &
       vendorNameArray.push(unescape(rowsArray[r].childNodes[1].innerHTML)); //decodes anything like
       //&amp; to &
-      console.log('htmlentities.unescape(rowsArray[r].childNodes[1].innerHTML)==>', htmlentities.unescape(rowsArray[r].childNodes[1].innerHTML))
+      console.log('unescape(rowsArray[r].childNodes[1].innerHTML)==>', unescape(rowsArray[r].childNodes[1].innerHTML))
     }
   }
 
