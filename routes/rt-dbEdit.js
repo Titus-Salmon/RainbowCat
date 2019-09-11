@@ -3,15 +3,15 @@ var router = express.Router();
 var fs = require('fs');
 
 var mysql = require('mysql')
-// var connection = mysql.createConnection({ //old - from local db setup
-// 	host: 'localhost',
-// 	user: 'root',
-// 	password: '',
-// 	database: 'catRelTrkr'
-// });
+var connection = mysql.createConnection({ //old - from local db setup
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'catRelTrkr'
+});
 
-const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
-connection.connect();
+// const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
+// connection.connect();
 
 /* GET db-input page. */
 router.get('/', function (req, res, next) {

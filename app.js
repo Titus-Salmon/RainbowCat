@@ -9,16 +9,16 @@ const helmet = require('helmet'); //t0d
 
 
 const homeRouter = require('./routes/rt-home'); //t0d
-const dbInputRouter = require('./routes/rt-dbInput'); //t0d
-const dbSearchRouter = require('./routes/rt-dbSearch'); //t0d
+// const dbInputRouter = require('./routes/rt-dbInput'); //t0d
+// const dbSearchRouter = require('./routes/rt-dbSearch'); //t0d
 const dbEditRouter = require('./routes/rt-dbEdit'); //t0d
-const dbEditAndreaRouter = require('./routes/rt-dbEditAndrea'); //t0d
-const editEntryRouter = require('./routes/rt-editEntry'); //t0d
-const editEntryAndreaRouter = require('./routes/rt-editEntryAndrea'); //t0d
-const noRecordsRouter = require('./routes/rt-noRecords'); //t0d
-const autoEmailRouter = require('./routes/rt-autoEmail'); //t0d
-const autoEmailAndreaRouter = require('./routes/rt-autoEmailAndrea'); //t0d
-const emailSuccessRouter = require('./routes/rt-emailSuccess'); //t0d
+// const dbEditAndreaRouter = require('./routes/rt-dbEditAndrea'); //t0d
+// const editEntryRouter = require('./routes/rt-editEntry'); //t0d
+// const editEntryAndreaRouter = require('./routes/rt-editEntryAndrea'); //t0d
+// const noRecordsRouter = require('./routes/rt-noRecords'); //t0d
+// const autoEmailRouter = require('./routes/rt-autoEmail'); //t0d
+// const autoEmailAndreaRouter = require('./routes/rt-autoEmailAndrea'); //t0d
+// const emailSuccessRouter = require('./routes/rt-emailSuccess'); //t0d
 
 const app = express();
 
@@ -41,16 +41,16 @@ app.use(helmet()); //t0d
 
 
 app.use('/', homeRouter); //t0d
-app.use('/dbInput', dbInputRouter); //t0d
-app.use('/dbSearch', dbSearchRouter); //t0d
+// app.use('/dbInput', dbInputRouter); //t0d
+// app.use('/dbSearch', dbSearchRouter); //t0d
 app.use('/dbEdit', dbEditRouter); //t0d
-app.use('/dbEditAndrea', dbEditAndreaRouter); //t0d
-app.use('/editEntry', editEntryRouter); //t0d
-app.use('/editEntryAndrea', editEntryAndreaRouter); //t0d
-app.use('/noRecords', noRecordsRouter); //t0d
-app.use('/autoEmail', autoEmailRouter); //t0d
-app.use('/autoEmailAndrea', autoEmailAndreaRouter); //t0d
-app.use('/emailSuccess', emailSuccessRouter); //t0d
+// app.use('/dbEditAndrea', dbEditAndreaRouter); //t0d
+// app.use('/editEntry', editEntryRouter); //t0d
+// app.use('/editEntryAndrea', editEntryAndreaRouter); //t0d
+// app.use('/noRecords', noRecordsRouter); //t0d
+// app.use('/autoEmail', autoEmailRouter); //t0d
+// app.use('/autoEmailAndrea', autoEmailAndreaRouter); //t0d
+// app.use('/emailSuccess', emailSuccessRouter); //t0d
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
