@@ -11,7 +11,7 @@ if (localStorage.getItem('userEmail_localStorage') !== 'tsalm0n@twc.com') {
 		adminButtonClassCollection[i].style.backgroundColor = 'red';
 	}
 	for (let i = 0; i < adminFormClassCollection.length; i++) {
-		adminFormClassCollection[i].readonly = true;
+		adminFormClassCollection[i].readOnly = true;
 		adminFormClassCollection[i].style.backgroundColor = 'orange';
 	}
 }
