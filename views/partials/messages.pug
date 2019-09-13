@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		//- title Document
+	body
+
+		if typeof errors !== 'undefined'
+			each elmnt in errors
+				p= elmnt.msg
+
+		if success_msg != ''
+			each success_msg_thingy in success_msg
+				p= success_msg_thingy
+				- console.log('success_msg==>', success_msg)
+				- console.log('success_msg_thingy==>', success_msg_thingy)
+
+		if error_msg != ''
+			each error_msg_thingy in error_msg
+				p= error_msg_thingy
+				- console.log('error_msg==>', error_msg)
+				- console.log('error_msg_thingy==>', error_msg_thingy) 
+
+		//- if flashResultsRegister !== undefined
+		//- 	each thingy1 in flashResultsRegister
+		//- 		p= thingy1
+		//- 	- console.log('flashResultsRegister==>', flashResultsRegister)
+
+		if error !== ''
+			each error_thingy in error
+				p= error_thingy
+				- console.log('error==>', error)
+				- console.log('error_thingy==>', error_thingy)

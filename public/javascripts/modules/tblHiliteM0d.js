@@ -1,4 +1,5 @@
-localStorage.clear();
+// localStorage.clear();
+localStorage.removeItem('clickedRowData');
 //begin table highlighter////////////////////////////////////////////////////////////////////
 const ResTblBdy = document.getElementById("resTblBdy");
 let currentDate = new Date();
@@ -79,7 +80,8 @@ function highlight_row() {
 
         // do something on onclick event for cells
         cells[i].onclick = function (event) {
-            localStorage.clear(); //remove any previous cells data
+            // localStorage.clear(); //remove any previous cells data
+            localStorage.removeItem('clickedRowData'); //remove any previous cells data
 
             let cellStorage = [];
 

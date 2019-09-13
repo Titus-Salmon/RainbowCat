@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		link(rel='stylesheet', href='../stylesheets/style.css')
+		title= title
+
+	body
+		include partials/header.pug
+		div.input-field-1
+			h3(style="margin-top: 0")= title
+			include partials/messages.pug
+
+			form#login_t0d(action='/users/login' method='POST' accept-charset="UTF-8")
+				thead
+					tr
+						td
+							label.input-label-1(for='email') Email
+							input#email.input-unit-1(type='email', placeholder='enter email', name='email')
+						td
+							label.input-label-1(for='password') Password
+							input#password.input-unit-1(type='text', placeholder='enter password', name='password')
+				
+			button(type='submit', form='login_t0d', style="display: block; float: left") Submit

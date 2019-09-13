@@ -1,10 +1,15 @@
 doctype html
 html
-    head
-        title #{title}
-        meta(name='viewport', content='width=device-width, initial-scale=1')
-        meta(charset='UTF-8')
-        link(rel='stylesheet', href='/stylesheets/style.css')
-    body
-        include partials/header.pug
-        h3= 'NO SEARCH RESULTS - Please use navigation panel above to continue.'
+	head
+		title #{title}
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(charset='UTF-8')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		include partials/header.pug
+		div(style='display:block; margin:0 0 2.5rem 2.5rem')
+			a(href='/dbEditPassport', style="margin-bottom: 5rem") Search & Edit Database
+			|
+			|
+			a(href="/users/logout") Logout
+		h3= 'NO SEARCH RESULTS - Please use navigation panel above to continue.'

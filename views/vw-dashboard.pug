@@ -1,0 +1,35 @@
+doctype html
+html
+	head
+		link(rel='stylesheet', href='../stylesheets/style.css')
+		title= title
+		//- script(src='/javascripts/modules/dashboardM0d.js')
+
+	body
+		include partials/header.pug
+		div(style='display:block; margin:0 0 2.5rem 2.5rem')
+			a(href='/dbEditPassport', style="margin-bottom: 5rem") Search & Edit Database
+			|
+			|
+			a(href="/users/logout") Logout
+		div.input-field-1
+			h3(style="margin-top: 0")= title
+
+			p Username: #{username}
+			p Email: #{userEmail}
+
+			if userEmail_stringified
+				script.
+					localStorage.clear()
+					localStorage.setItem('userEmail_localStorage', !{userEmail_stringified})
+					console.log('localStorage from pug==>', localStorage)
+
+			//- p The button below should be disabled unless req.user.email = tsalm0n@twc.com
+			//- //- if userEmail == 'tsalm0n@twc.com'
+			//- //- 	button.admin Admin Button
+
+			//- button.adminButton(onclick='console.log(\'button clicked\')') Admin Button
+			//- button#adminButton1(onclick='console.log(\'button clicked\')') Admin Button
+
+			script(src='/javascripts/modules/adminM0d.js')
+
