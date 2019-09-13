@@ -1,6 +1,5 @@
 node_modules
 .env
-config/keys.js
 ARCHIVE
 package-lock.json
 catRT - Shortcut.lnk
