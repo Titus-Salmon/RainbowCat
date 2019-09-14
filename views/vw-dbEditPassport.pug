@@ -71,7 +71,7 @@ html
 					if searchResRows !== undefined
 						each elmnt in searchResRows
 							tr
-								td= elmnt.P_K
+								td(style="display:none")= elmnt.P_K
 								td= elmnt.Vendor
 								td= elmnt.EDI
 								td= elmnt.IssDt
