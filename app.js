@@ -50,6 +50,7 @@ const editEntryPassportRouter = require('./routes/rt-editEntryPassport'); //t0d
 // const editEntryAndreaRouter = require('./routes/rt-editEntryAndrea'); //t0d
 // const noRecordsRouter = require('./routes/rt-noRecords'); //t0d
 // const autoEmailRouter = require('./routes/rt-autoEmail'); //t0d
+const autoEmailPassportRouter = require('./routes/rt-autoEmailPassport'); //t0d
 // const autoEmailAndreaRouter = require('./routes/rt-autoEmailAndrea'); //t0d
 // const emailSuccessRouter = require('./routes/rt-emailSuccess'); //t0d
 const usersRouter = require('./routes/rt-users'); //t0d
@@ -118,6 +119,7 @@ app.use('/editEntryPassport', editEntryPassportRouter); //t0d
 // app.use('/editEntryAndrea', editEntryAndreaRouter); //t0d
 // app.use('/noRecords', noRecordsRouter); //t0d
 // app.use('/autoEmail', autoEmailRouter); //t0d
+app.use('/autoEmailPassport', autoEmailPassportRouter); //t0d
 // app.use('/autoEmailAndrea', autoEmailAndreaRouter); //t0d
 // app.use('/emailSuccess', emailSuccessRouter); //t0d
 app.use('/users', usersRouter); //t0d
