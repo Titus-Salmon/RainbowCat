@@ -8,7 +8,7 @@ html
 		div.input-field-1
 			h3(style="margin-top: 0")= title
 
-			form#autoEmail(action='/autoEmail/results' method='POST' accept-charset="UTF-8")
+			form#autoEmail(action='/autoEmailPassport/results' method='POST' accept-charset="UTF-8")
 				thead
 					tr
 						td
@@ -42,12 +42,12 @@ html
 			br
 			br
 			button#saveCSV(type="submit" form="saveCSVPost") Save Results as CSV
-			form#saveCSVPost(action='/autoEmail/saveCSV' method='POST' accept-charset='UTF-8')
+			form#saveCSVPost(action='/autoEmailPassport/saveCSV' method='POST' accept-charset='UTF-8')
 				label.input-label-1(for='csv') filename:
 					input#csv.input-unit-1(type='text', placeholder='enter filename here', name='csvPost', value='')
 
 		div.rslt-tbl-1
-			form#sendEmail(action='/autoEmail/formPost' method='POST' accept-charset="UTF-8")
+			form#sendEmail(action='/autoEmailPassport/formPost' method='POST' accept-charset="UTF-8")
 				thead
 					tr
 						td
@@ -103,7 +103,7 @@ html
 								td= elmnt.vndemail
 
 
-		//- script(src='/javascripts/autoEmail.js')
+		//- script(src='/javascripts/autoEmailPassport.js')
 		script(src='/javascripts/modules/sortTableM0d.js')
 		script(src='/javascripts/modules/needNewCatTblM0d.js')
 		script(src='/javascripts/modules/dateCalcM0d.js')
