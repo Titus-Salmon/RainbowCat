@@ -95,7 +95,7 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
       if (err) throw err;
       showSearchResults(rows);
 
-      res.render('vw-autoEmail', { //render searchResults to vw-autoEmail page
+      res.render('vw-autoEmailPassport', { //render searchResults to vw-autoEmail page
         title: 'Auto Email Search Results',
         searchResRows: searchResults,
       });
@@ -124,9 +124,12 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
           } else { //if records found for search string entered, add them to searchResults
             showSearchResults(rows);
 
-            res.render('vw-autoEmail', { //render searchResults to vw-autoEmail page
+            res.render('vw-autoEmailPassport', { //render searchResults to vw-autoEmail page
               title: 'Auto Email Search Results',
               searchResRows: searchResults,
+              // username: req.user.name,
+              // userEmail: req.user.email,
+              // userEmail_stringified: JSON.stringify(req.user.email),
             });
           }
         })

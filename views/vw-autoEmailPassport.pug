@@ -4,8 +4,8 @@ html
 		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
 
 	body
-		//- include partials/header.pug
-		include vw-dashboard.pug
+		include partials/header.pug
+		include partials/subHeader.pug
 		div.input-field-1
 			h3(style="margin-top: 0")= title
 
@@ -42,7 +42,7 @@ html
 			button#searchDB(type='submit', form='autoEmail', style="display: block; float: left") Show Catalogs That Need To Be Updated
 			br
 			br
-			button#saveCSV(type="submit" form="saveCSVPost") Save Results as CSV
+			button.adminButton#saveCSV(type="submit" form="saveCSVPost") Save Results as CSV
 			form#saveCSVPost(action='/autoEmailPassport/saveCSV' method='POST' accept-charset='UTF-8')
 				label.input-label-1(for='csv') filename:
 					input#csv.input-unit-1(type='text', placeholder='enter filename here', name='csvPost', value='')
@@ -55,24 +55,24 @@ html
 							input#prKy(type='text', name='prKyPost', style="display: none")
 						td
 							label.input-label-1(for='autoEmailVndNm') Vendor Name
-							input#autoEmailVndNm.input-unit-1(type='text', placeholder='enter data', name='vndNmPost', required='')
+							input.adminForm#autoEmailVndNm.input-unit-1(type='text', placeholder='enter data', name='vndNmPost', required='')
 						td
 							label.input-label-1(for='autoEmailVndEmail') Vendor Email
-							input#autoEmailVndEmail.input-unit-1(type='text', placeholder='enter data', name='vndEmailPost', required='', value='')
+							input.adminForm#autoEmailVndEmail.input-unit-1(type='text', placeholder='enter data', name='vndEmailPost', required='', value='')
 						td
 							label.input-label-1(for='senderEmail') Sender Email
-							input#senderEmail.input-unit-1(type='text', placeholder='enter data', name='senderEmailPost', required='', value='')
+							input.adminForm#senderEmail.input-unit-1(type='text', placeholder='enter data', name='senderEmailPost', required='', value='')
 						td
 							label.input-label-1(for='senderEmailPW') Sender Email Password
-							input#senderEmailPW.input-unit-1(type='password', placeholder='enter data', name='senderEmailPWPost', required='', value='')
+							input.adminForm#senderEmailPW.input-unit-1(type='password', placeholder='enter data', name='senderEmailPWPost', required='', value='')
 
 
-			button(type='submit', form='sendEmail', style="display: block; float: left") Send Auto Email(s)
+			button.adminButton(type='submit', form='sendEmail', style="display: block; float: left") Send Auto Email(s)
 
 		div.rslt-tbl-1
 			table#resTbl
-				button#editDB(style="display: inline-block") Edit Selection
-				button#deleteSelection(style="display: inline-block") Delete Selection
+				button.adminButton#editDB(style="display: inline-block") Edit Selection
+				button.adminButton#deleteSelection(style="display: inline-block") Delete Selection
 				thead
 					tr
 						th(onclick="sortTable(0)") Primary Key
@@ -109,3 +109,4 @@ html
 		script(src='/javascripts/modules/needNewCatTblM0d.js')
 		script(src='/javascripts/modules/dateCalcM0d.js')
 		script(src='/javascripts/modules/editDBM0d.js')
+		script(src='/javascripts/modules/adminM0d.js')
