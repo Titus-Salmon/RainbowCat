@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+const {
+  ensureAuthenticated
+} = require('../config/auth-t0dt1tz1');
+
 var mysql = require('mysql')
 // var connection = mysql.createConnection({ //old - from local db setup
 //   host: 'localhost',
@@ -13,9 +17,12 @@ const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
 connection.connect();
 
 /* GET db-input page. */
-router.get('/', function (req, res, next) {
+router.get('/', ensureAuthenticated, function (req, res, next) {
   res.render('vw-editEntryPassport', {
-    title: 'Edit Entry'
+    title: 'Edit Entry',
+    username: req.user.name,
+    userEmail: req.user.email,
+    userEmail_stringified: JSON.stringify(req.user.email),
   });
 });
 
