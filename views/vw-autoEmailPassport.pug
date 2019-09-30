@@ -51,23 +51,23 @@ html
 			form#sendEmail(action='/autoEmailPassport/formPost' method='POST' accept-charset="UTF-8")
 				thead
 					tr
-						td
-							input#prKy(type='text', name='prKyPost', style="display: none")
+						//- td
+						//- 	input#prKy(type='text', name='prKyPost', style="display: none")
 						td
 							label.input-label-1(for='autoEmailVndNm') Vendor Name
-							input.adminForm#autoEmailVndNm.input-unit-1(type='text', placeholder='enter data', name='vndNmPost', required='')
+							input.autoEmailAdminForm#autoEmailVndNm.input-unit-1(type='text', placeholder='enter data', name='vndNmPost', required='')
 						td
 							label.input-label-1(for='autoEmailVndEmail') Vendor Email
-							input.adminForm#autoEmailVndEmail.input-unit-1(type='text', placeholder='enter data', name='vndEmailPost', required='', value='')
+							input.autoEmailAdminForm#autoEmailVndEmail.input-unit-1(type='text', placeholder='enter data', name='vndEmailPost', required='', value='')
 						td
 							label.input-label-1(for='senderEmail') Sender Email
-							input.adminForm#senderEmail.input-unit-1(type='text', placeholder='enter data', name='senderEmailPost', required='', value='')
+							input.autoEmailAdminForm#senderEmail.input-unit-1(type='text', placeholder='enter data', name='senderEmailPost', required='', value='andrea.mcgrath@rainbowblossom.com')
 						td
 							label.input-label-1(for='senderEmailPW') Sender Email Password
-							input.adminForm#senderEmailPW.input-unit-1(type='password', placeholder='enter data', name='senderEmailPWPost', required='', value='')
+							input.autoEmailAdminForm#senderEmailPW.input-unit-1(type='password', placeholder='enter data', name='senderEmailPWPost', required='', value='')
 
 
-			button.adminButton(type='submit', form='sendEmail', style="display: block; float: left") Send Auto Email(s)
+			button.autoEmailAdminButton(type='submit', form='sendEmail', style="display: block; float: left") Send Auto Email(s)
 
 		div.rslt-tbl-1
 			table#resTbl

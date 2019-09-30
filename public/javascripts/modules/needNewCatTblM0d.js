@@ -40,7 +40,7 @@ function highlight_row() {
     if (Date.dateDiff('w', cellDate, currentDate) > 24) { //if issue date of cat is more than 6 months old
       issdate.style.backgroundColor = "orange"
     }
-    if ((Date.dateDiff('w', cellDate, currentDate) <= 24) ||
+    if ((Date.dateDiff('w', cellDate, currentDate) <= 24) || //determines whether entry is shown as in need of updating 
       (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) ||
       (cmnts.innerHTML.toLowerCase().includes('not in edi')) ||
       (cmnts.innerHTML.toLowerCase().includes('get vendor email')) ||
