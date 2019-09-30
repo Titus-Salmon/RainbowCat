@@ -93,6 +93,9 @@ function highlight_row() {
     if (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) {
       cells[i].parentNode.style.backgroundColor = "#ffcc99";
     }
+    if (cmnts.innerHTML.toLowerCase().includes('rqstd cat - resend')) {
+      cells[i].parentNode.style.backgroundColor = "#ffccff";
+    }
 
 
     let clickCounter = 0; //set click counter for how many times a row has been clicked on to 0
