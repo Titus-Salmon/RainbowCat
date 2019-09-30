@@ -25,6 +25,7 @@ function highlight_row() {
         let need = cells[i].parentNode.childNodes[4];
         let updated = cells[i].parentNode.childNodes[5];
         let cmnts = cells[i].parentNode.childNodes[7];
+        let userCmnts = cells[i].parentNode.childNodes[8];
         console.log('issdate.innerHTML==>', issdate.innerHTML)
         let cellDate = new Date(issdate.innerHTML);
 
@@ -73,6 +74,9 @@ function highlight_row() {
         }
         if (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) {
             cells[i].parentNode.style.backgroundColor = "#ffcc99";
+        }
+        if (userCmnts.innerHTML.toLowerCase().includes('sent retail review')) {
+            userCmnts.style.backgroundColor = "#00ffcc";
         }
 
 
