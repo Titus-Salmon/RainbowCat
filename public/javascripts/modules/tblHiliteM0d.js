@@ -56,10 +56,10 @@ function highlight_row() {
             updated.style.backgroundColor = "#ccffcc";
         }
         if (reporter.innerHTML.toLowerCase().includes == 'wholesale updated') {
-            updated.style.backgroundColor = "#00aaaa";
+            reporter.style.backgroundColor = "#00aaaa";
         }
         if (reporter.innerHTML.toLowerCase() == 'need wholesale imw') {
-            updated.style.backgroundColor = "#ffeecc";
+            reporter.style.backgroundColor = "#ffeecc";
         }
         if (cmnts.innerHTML.toLowerCase().includes('not in edi') || cmnts.innerHTML.toLowerCase().includes('not in titus') || cmnts.innerHTML.toLowerCase().includes('problem:')) {
             cmnts.style.backgroundColor = "#ffb3ca";
