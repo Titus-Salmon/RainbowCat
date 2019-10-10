@@ -83,7 +83,7 @@ function highlight_row() {
             cells[i].parentNode.style.backgroundColor = "#ffcc99";
         }
         if (userCmnts.innerHTML.toLowerCase().includes('sent retail review')) {
-            userCmnts.style.backgroundColor = "##ffab00";
+            userCmnts.style.backgroundColor = "#ffab00";
         }
         if (userCmnts.innerHTML.toLowerCase().includes('need retail imw')) {
             userCmnts.style.backgroundColor = "#ffeecc";
