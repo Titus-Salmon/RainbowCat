@@ -86,7 +86,7 @@ function highlight_row() {
             userCmnts.style.backgroundColor = "#ffab00";
         }
         if (userCmnts.innerHTML.toLowerCase().includes('need retail imw')) {
-            userCmnts.style.backgroundColor = "#ffeecc";
+            userCmnts.style.backgroundColor = "#ff8533";
         }
         if (userCmnts.innerHTML.toLowerCase().includes('retail updated')) {
             userCmnts.style.backgroundColor = "#00ffcc";
