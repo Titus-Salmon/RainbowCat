@@ -58,6 +58,9 @@ function highlight_row() {
         if (reporter.innerHTML.toLowerCase().includes('wholesale updated')) {
             reporter.style.backgroundColor = "#00aaaa";
         }
+        if (reporter.innerHTML.toLowerCase().includes('retail updated')) {
+            reporter.style.backgroundColor = "#00ffcc";
+        }
         if (reporter.innerHTML.toLowerCase() == 'need wholesale imw') {
             reporter.style.backgroundColor = "#ffeecc";
         }
