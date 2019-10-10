@@ -55,7 +55,7 @@ function highlight_row() {
         if (updated.innerHTML.toLowerCase() == 'yes') {
             updated.style.backgroundColor = "#ccffcc";
         }
-        if (reporter.innerHTML.toLowerCase() == 'wholesale updated') {
+        if (reporter.innerHTML.toLowerCase().includes == 'wholesale updated') {
             updated.style.backgroundColor = "#00aaaa";
         }
         if (reporter.innerHTML.toLowerCase() == 'need wholesale imw') {
