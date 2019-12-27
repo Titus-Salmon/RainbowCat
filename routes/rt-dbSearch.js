@@ -73,7 +73,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbSe
 		if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined && formInput3 !== undefined && formInput4 !== undefined && formInput5 !== undefined && formInput6 !== undefined && formInput7 !== undefined) {
 			connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%' 
 			AND ${issueDate} LIKE '${formInput3}%' AND ${needNewCat} LIKE '${formInput4}%' AND ${updatedWLatest} LIKE '${formInput5}%' 
-			AND ${reporter} LIKE '${formInput6}%' AND ${comments} LIKE '${formInput7}%' ORDER BY vendorName ASC`,
+			AND ${reporter} LIKE '${formInput6}%' AND ${comments} LIKE '${formInput7}%' ORDER BY vendorName DESC`,
 				function (err, rows, fields) {
 					if (err) throw err;
 					console.log('rows==>', rows);
