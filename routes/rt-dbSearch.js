@@ -60,7 +60,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbSe
 
 
 	if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' && formInput5 == '' && formInput6 == '' && formInput7 == '') { //return all table entries if search string is empty
-		connection.query(`SELECT * FROM rainbowcat ORDER BY vendorName ASC`, function (err, rows, fields) {
+		connection.query(`SELECT * FROM rainbowcat ORDER BY 'vendorName' DESC`, function (err, rows, fields) {
 			if (err) throw err;
 			showSearchResults(rows);
 
@@ -71,9 +71,9 @@ router.post('/results', (req, res, next) => { //take POST request data from dbSe
 		})
 	} else { // if no records found, render vw-noRecords page
 		if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined && formInput3 !== undefined && formInput4 !== undefined && formInput5 !== undefined && formInput6 !== undefined && formInput7 !== undefined) {
-			connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%' 
+			connection.query(`SELECT * FROM rainbowcat WHERE 'vendorName' LIKE '${formInput1}%' AND 'ediName' LIKE '${formInput2}%' 
 			AND ${issueDate} LIKE '${formInput3}%' AND ${needNewCat} LIKE '${formInput4}%' AND ${updatedWLatest} LIKE '${formInput5}%' 
-			AND ${reporter} LIKE '${formInput6}%' AND ${comments} LIKE '${formInput7}%' ORDER BY 'vendorName' DESC`,
+			AND ${reporter} LIKE '${formInput6}%' AND ${comments} LIKE '${formInput7}%' ORDER BY 'vendorName' ASC`,
 				function (err, rows, fields) {
 					if (err) throw err;
 					console.log('rows==>', rows);
