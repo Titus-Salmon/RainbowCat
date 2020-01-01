@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const fs = require('fs');
+const express = require('express')
+const router = express.Router()
+const fs = require('fs')
 const {
   ensureAuthenticated
-} = require('../config/auth-t0dt1tz1');
+} = require('../config/auth-t0dt1tz1')
 
 const mysql = require('mysql')
 // const connection = mysql.createConnection({ //old - from local db setup
@@ -11,17 +11,17 @@ const mysql = require('mysql')
 //   user: 'root',
 //   password: '',
 //   database: 'catRelTrkr'
-// });
+// })
 
-const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
-connection.connect();
+const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL)
+connection.connect()
 
 /* GET dbEditPassport page. */
 // router.get('/', function (req, res, next) {
 //   res.render('vw-dbEditPassport', {
 //     title: 'Edit Catalog Tracker Database'
-//   });
-// });
+//   })
+// })
 
 router.get('/', ensureAuthenticated, function (req, res, next) {
   res.render('vw-dbEditPassport', {
@@ -29,39 +29,40 @@ router.get('/', ensureAuthenticated, function (req, res, next) {
     username: req.user.name,
     userEmail: req.user.email,
     userEmail_stringified: JSON.stringify(req.user.email),
-  });
-});
+  })
+})
 
-let searchResultsForCSV = [];
+let searchResultsForCSV = []
 console.log('searchResultsForCSV from top level', searchResultsForCSV)
-let csvContainer = [];
+let csvContainer = []
 console.log('csvContainer from top level', csvContainer)
 
 router.post('/results', (req, res, next) => { //take POST request data from dbEditPassport page & put into database table
 
-  let searchResults = []; //clear searchResults from previous search
+  let searchResults = [] //clear searchResults from previous search
   console.log('searchResults from router.post level===>', searchResults)
-  searchResultsForCSV = [];
+  searchResultsForCSV = []
   console.log('searchResultsForCSV from router.post level===>', searchResultsForCSV)
-  csvContainer = [];
+  csvContainer = []
   console.log('csvContainer from router.post level===>', csvContainer)
 
   function showSearchResults(rows) {
     for (let i = 0; i < rows.length; i++) { //add searched-for table entries from db to searchResults array
-      let srcRsObj = {};
-      srcRsObj['P_K'] = rows[i]['prim_key'];
-      srcRsObj['Vendor'] = rows[i]['vendorName'];
-      srcRsObj['EDI'] = rows[i]['ediName'];
-      srcRsObj['IssDt'] = rows[i]['issueDate'];
-      srcRsObj['NdNw'] = rows[i]['needNewCat'];
-      srcRsObj['Updtd'] = rows[i]['updatedWLatest'];
-      srcRsObj['Rep'] = rows[i]['reporter'];
-      srcRsObj['Cmnts'] = rows[i]['comments'];
-      srcRsObj['Andr'] = rows[i]['andrea'];
-      srcRsObj['vndemail'] = rows[i]['vendorEmail'];
+      let srcRsObj = {}
+      srcRsObj['P_K'] = rows[i]['prim_key']
+      srcRsObj['Vendor'] = rows[i]['vendorName']
+      srcRsObj['EDI'] = rows[i]['ediName']
+      srcRsObj['IssDt'] = rows[i]['issueDate']
+      srcRsObj['NdNw'] = rows[i]['needNewCat']
+      srcRsObj['Updtd'] = rows[i]['updatedWLatest']
+      srcRsObj['Rep'] = rows[i]['reporter']
+      srcRsObj['Cmnts'] = rows[i]['comments']
+      srcRsObj['Andr'] = rows[i]['andrea']
+      srcRsObj['vndemail'] = rows[i]['vendorEmail']
+      srcRsObj['ongDisco'] = rows[i]['ongDisco']
       //console.log(rows[i]['issueDate'])
-      searchResults.push(srcRsObj);
-      searchResultsForCSV.push(srcRsObj);
+      searchResults.push(srcRsObj)
+      searchResultsForCSV.push(srcRsObj)
       console.log('srcRsObj==>', srcRsObj)
     }
     console.log('searchResults from showSearchResults()==>', searchResults)
@@ -70,38 +71,38 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
 
   }
 
-  const postBody = req.body;
-  //console.log('postBody==>', postBody);
-  let formInput0 = Object.values(postBody)[0];
-  let formInput1 = Object.values(postBody)[1];
-  let formInput2 = Object.values(postBody)[2];
-  let formInput3 = Object.values(postBody)[3];
-  let formInput4 = Object.values(postBody)[4];
-  let formInput5 = Object.values(postBody)[5];
-  let formInput6 = Object.values(postBody)[6];
-  let formInput7 = Object.values(postBody)[7];
-  let formInput8 = Object.values(postBody)[8];
-  console.log('formInput0(from dbEditPassport)==>', formInput0);
-  console.log('formInput1(from dbEditPassport)==>', formInput1);
-  console.log('formInput2(from dbEditPassport)==>', formInput2);
-  console.log('formInput3(from dbEditPassport)==>', formInput3);
-  console.log('formInput4(from dbEditPassport)==>', formInput4);
-  console.log('formInput5(from dbEditPassport)==>', formInput5);
-  console.log('formInput6(from dbEditPassport)==>', formInput6);
-  console.log('formInput7(from dbEditPassport)==>', formInput7);
-  console.log('formInput8(from dbEditPassport)==>', formInput8);
+  const postBody = req.body
+  //console.log('postBody==>', postBody)
+  let formInput0 = Object.values(postBody)[0]
+  let formInput1 = Object.values(postBody)[1]
+  let formInput2 = Object.values(postBody)[2]
+  let formInput3 = Object.values(postBody)[3]
+  let formInput4 = Object.values(postBody)[4]
+  let formInput5 = Object.values(postBody)[5]
+  let formInput6 = Object.values(postBody)[6]
+  let formInput7 = Object.values(postBody)[7]
+  let formInput8 = Object.values(postBody)[8]
+  console.log('formInput0(from dbEditPassport)==>', formInput0)
+  console.log('formInput1(from dbEditPassport)==>', formInput1)
+  console.log('formInput2(from dbEditPassport)==>', formInput2)
+  console.log('formInput3(from dbEditPassport)==>', formInput3)
+  console.log('formInput4(from dbEditPassport)==>', formInput4)
+  console.log('formInput5(from dbEditPassport)==>', formInput5)
+  console.log('formInput6(from dbEditPassport)==>', formInput6)
+  console.log('formInput7(from dbEditPassport)==>', formInput7)
+  console.log('formInput8(from dbEditPassport)==>', formInput8)
 
 
   if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' &&
     formInput5 == '' && formInput6 == '' && formInput7 == '' && formInput8 == '') { //return all table entries if search string is empty
-    connection.query(`SELECT * FROM rainbowcat ORDER BY vendorName ASC`, function (err, rows, fields) {
-      if (err) throw err;
-      showSearchResults(rows);
+    connection.query(`SELECT * FROM rainbowcat ORDER BY vendorName ASC;`, function (err, rows, fields) {
+      if (err) throw err
+      showSearchResults(rows)
 
       res.render('vw-dbEditPassport', { //render searchResults to vw-dbEditPassport page
         title: 'Edit Catalog Tracker Database',
         searchResRows: searchResults,
-      });
+      })
     })
   } else { // if no records found, render vw-noRecords page
     if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined &&
@@ -109,28 +110,28 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
       formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined) {
       connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%' 
 			AND issueDate LIKE '${formInput3}%' AND needNewCat LIKE '${formInput4}%' AND updatedWLatest LIKE '${formInput5}%' 
-			AND reporter LIKE '${formInput6}%' AND comments LIKE '${formInput7}%' ORDER BY vendorName ASC`,
+			AND reporter LIKE '${formInput6}%' AND comments LIKE '${formInput7}%' ORDER BY vendorName ASC;`,
         function (err, rows, fields) {
-          if (err) throw err;
-          // console.log('rows==>', rows);
-          // console.log('rows.length==>', rows.length);
+          if (err) throw err
+          // console.log('rows==>', rows)
+          // console.log('rows.length==>', rows.length)
           if (rows.length <= 0) {
-            console.log('NO RECORDS FOUND');
+            console.log('NO RECORDS FOUND')
             res.render('vw-noRecords', {
               title: 'no results',
-            });
+            })
           } else { //if records found for search string entered, add them to searchResults
-            showSearchResults(rows);
+            showSearchResults(rows)
 
             res.render('vw-dbEditPassport', { //render searchResults to vw-dbEditPassport page
               title: 'Edit Catalog Tracker Database',
               searchResRows: searchResults,
-            });
+            })
           }
         })
     }
   }
-});
+})
 
 router.post('/saveCSV', (req, res, next) => {
   console.log('/saveCSV preliminarily working')
@@ -140,56 +141,56 @@ router.post('/saveCSV', (req, res, next) => {
   //begin csv generator //////////////////////////////////////////////////////////////////////////
   const {
     Parser
-  } = require('json2csv');
+  } = require('json2csv')
 
-  const fields = ['P_K', 'Vendor', 'EDI', 'IssDt', 'NdNw', 'Updtd', 'Rep', 'Cmnts', 'Andr'];
+  const fields = ['P_K', 'Vendor', 'EDI', 'IssDt', 'NdNw', 'Updtd', 'Rep', 'Cmnts', 'Andr']
   const opts = {
     fields
-  };
+  }
 
   try {
     console.log('searchResultsForCSV from json2csv======>>', searchResultsForCSV)
-    const parser = new Parser(opts);
-    const csv = parser.parse(searchResultsForCSV);
-    csvContainer.push(csv);
-    console.log('csv_T0d=====>>', csv);
+    const parser = new Parser(opts)
+    const csv = parser.parse(searchResultsForCSV)
+    csvContainer.push(csv)
+    console.log('csv_T0d=====>>', csv)
     fs.writeFile('../catrt/public/csv/' + req.body['csvPost'] + '.csv', csv, function (err) {
-      if (err) throw err;
+      if (err) throw err
       console.log('~~~~~>>' + req.body['csvPost'] + 'saved<<~~~~~')
     })
-    // searchResultsForCSV = []; //clear searchResultsForCSV so it doesn't hold previous data on next csv generation
-    // csvContainer = []; //clear csvContainer so it doesn't hold previous data on next csv generation
+    // searchResultsForCSV = [] //clear searchResultsForCSV so it doesn't hold previous data on next csv generation
+    // csvContainer = [] //clear csvContainer so it doesn't hold previous data on next csv generation
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
   //end csv generator //////////////////////////////////////////////////////////////////////////
 
   res.render('vw-csvSaved', { //render searchResults to vw-dbEditPassport page
     title: 'CSV Saved'
-  });
+  })
 })
 
 router.post('/deleteSelection', (req, res, next) => { //take POST request data from vw-dbEditPassport page & delete from database table
-  const postBody = req.body;
-  console.log('postBody', postBody);
-  let delInput0 = postBody[0];
-  let delInput1 = postBody[1];
-  let delInput2 = postBody[2];
-  let delInput3 = postBody[3];
-  let delInput4 = postBody[4];
-  let delInput5 = postBody[5];
-  let delInput6 = postBody[6];
-  let delInput7 = postBody[7];
-  console.log('delInput0(from dbinput)==>', delInput0);
+  const postBody = req.body
+  console.log('postBody', postBody)
+  let delInput0 = postBody[0]
+  let delInput1 = postBody[1]
+  let delInput2 = postBody[2]
+  let delInput3 = postBody[3]
+  let delInput4 = postBody[4]
+  let delInput5 = postBody[5]
+  let delInput6 = postBody[6]
+  let delInput7 = postBody[7]
+  console.log('delInput0(from dbinput)==>', delInput0)
 
 
-  connection.query("DELETE FROM rainbowcat WHERE prim_key = " + delInput0 + ";",
+  connection.query("DELETE FROM rainbowcat WHERE prim_key = " + delInput0 + "",
     function (err, rows, fields) {
       if (err) throw err
 
-      console.log('rows==>', rows);
-      console.log('fields==>', fields);
-    });
-});
+      console.log('rows==>', rows)
+      console.log('fields==>', fields)
+    })
+})
 
-module.exports = router;
+module.exports = router
