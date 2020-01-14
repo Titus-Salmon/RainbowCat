@@ -74,15 +74,16 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
 
   const postBody = req.body
   //console.log('postBody==>', postBody)
-  let formInput0 = Object.values(postBody)[0]
-  let formInput1 = Object.values(postBody)[1]
-  let formInput2 = Object.values(postBody)[2]
-  let formInput3 = Object.values(postBody)[3]
-  let formInput4 = Object.values(postBody)[4]
-  let formInput5 = Object.values(postBody)[5]
-  let formInput6 = Object.values(postBody)[6]
-  let formInput7 = Object.values(postBody)[7]
-  let formInput8 = Object.values(postBody)[8]
+  let formInput0 = Object.values(postBody)[0] //prKyPost
+  let formInput1 = Object.values(postBody)[1] //vndNmPost
+  let formInput2 = Object.values(postBody)[2] //ediNmPost
+  let formInput3 = Object.values(postBody)[3] //issuDtPost
+  let formInput4 = Object.values(postBody)[4] //ndNwCtPost
+  let formInput5 = Object.values(postBody)[5] //updtwLtstPost
+  let formInput6 = Object.values(postBody)[6] //cmnt1Post
+  let formInput7 = Object.values(postBody)[7] //cmnt2Post
+  let formInput8 = Object.values(postBody)[8] //cmnt3Post
+  let formInput9 = Object.values(postBody)[9] //andrPost
   console.log('formInput0(from dbEditPassport)==>', formInput0)
   console.log('formInput1(from dbEditPassport)==>', formInput1)
   console.log('formInput2(from dbEditPassport)==>', formInput2)
@@ -92,10 +93,11 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
   console.log('formInput6(from dbEditPassport)==>', formInput6)
   console.log('formInput7(from dbEditPassport)==>', formInput7)
   console.log('formInput8(from dbEditPassport)==>', formInput8)
+  console.log('formInput9(from dbEditPassport)==>', formInput9)
 
 
   if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' &&
-    formInput5 == '' && formInput6 == '' && formInput7 == '' && formInput8 == '') { //return all table entries if search string is empty
+    formInput5 == '' && formInput6 == '' && formInput7 == '' && formInput8 == '' && formInput9 == '') { //return all table entries if search string is empty
     connection.query(`SELECT * FROM rainbowcat ORDER BY vendorName ASC;`, function (err, rows, fields) {
       if (err) throw err
       showSearchResults(rows)
@@ -108,10 +110,11 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
   } else { // if no records found, render vw-noRecords page
     if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined &&
       formInput3 !== undefined && formInput4 !== undefined && formInput5 !== undefined &&
-      formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined) {
+      formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined) {
       connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%' 
 			AND issueDate LIKE '${formInput3}%' AND needNewCat LIKE '${formInput4}%' AND updatedWLatest LIKE '${formInput5}%' 
-			AND reporter LIKE '${formInput6}%' AND comments LIKE '${formInput7}%' ORDER BY vendorName ASC;`,
+      AND comments1 LIKE '${formInput6}%' AND comments2 LIKE '${formInput7}%' AND comments3 LIKE '${formInput8}%'
+      AND andrea LIKE '${formInput9}%' ORDER BY vendorName ASC;`,
         function (err, rows, fields) {
           if (err) throw err
           // console.log('rows==>', rows)
