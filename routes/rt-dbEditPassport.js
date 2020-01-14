@@ -119,7 +119,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
         " AND comments1 LIKE " + "'" + formInput6 + "%" + "'" +
         " AND comments2 LIKE " + "'" + formInput7 + "%" + "'" +
         " AND comments3 LIKE " + "'" + formInput8 + "%" + "'" +
-        " AND andrea LIKE " + "'" + formInput8 + "%" + "'",
+        " AND andrea LIKE " + "'" + formInput9 + "%" + "'",
         function (err, rows, fields) {
           if (err) throw err
           // console.log('rows==>', rows)
