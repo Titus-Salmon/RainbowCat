@@ -45,7 +45,7 @@ router.post('/formPost', (req, res, next) => { //take POST request data from db-
 
   connection.query("UPDATE rainbowcat SET vendorName = " + "'" + formInput1 + "', " + "ediName = " + "'" + formInput2 + "', " +
     "issueDate = " + "'" + formInput3 + "', " + "needNewCat = " + "'" + formInput4 + "', " + "updatedWLatest = " + "'" +
-    formInput5 + "', " + "comments1 =" + "'" + formInput6 + "', " + "comments2 = " + "'" + formInput7 + "', " +
+    formInput5 + "', " + "comments1 = " + "'" + formInput6 + "', " + "comments2 = " + "'" + formInput7 + "', " +
     "comments3 = " + "'" + formInput8 + "', " + "andrea = " + "'" + formInput9 + "', " +
     "vendorEmail = " + "'" + formInput10 + "'" + " WHERE prim_key = " + formInput0 + ";",
     function (err, rows, fields) {
