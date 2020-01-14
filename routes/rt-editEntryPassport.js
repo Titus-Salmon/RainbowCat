@@ -38,13 +38,16 @@ router.post('/formPost', (req, res, next) => { //take POST request data from db-
   let formInput6 = Object.values(postBody)[6].replace("'", "''");
   let formInput7 = Object.values(postBody)[7].replace("'", "''");
   let formInput8 = Object.values(postBody)[8].replace("'", "''");
-  let formInput9 = Object.values(postBody)[9].replace("'", "''"); //the .replace() portion enables you to enter single quotes
+  let formInput9 = Object.values(postBody)[9].replace("'", "''");
+  let formInput10 = Object.values(postBody)[10].replace("'", "''"); //the .replace() portion enables you to enter single quotes
   //into input fields & mysql won't reject it. Why you have to replace with "''" instead of "\'" isn't exactly clear
   console.log('formInput8(from dbinput)==>', formInput8);
 
   connection.query("UPDATE rainbowcat SET vendorName = " + "'" + formInput1 + "', " + "ediName = " + "'" + formInput2 + "', " +
-    "issueDate = " + "'" + formInput3 + "', " + "needNewCat = " + "'" + formInput4 + "', " + "updatedWLatest = " + "'" + formInput5 + "', " +
-    "reporter =" + "'" + formInput6 + "', " + "comments = " + "'" + formInput7 + "', " + "andrea = " + "'" + formInput8 + "', " + "vendorEmail = " + "'" + formInput9 + "'" + " WHERE prim_key = " + formInput0 + ";",
+    "issueDate = " + "'" + formInput3 + "', " + "needNewCat = " + "'" + formInput4 + "', " + "updatedWLatest = " + "'" +
+    formInput5 + "', " + "comments1 =" + "'" + formInput6 + "', " + "comments2 = " + "'" + formInput7 + "', " +
+    "comments3 = " + "'" + formInput8 + "', " + "andrea = " + "'" + formInput9 + "', " +
+    "vendorEmail = " + "'" + formInput10 + "'" + " WHERE prim_key = " + formInput0 + ";",
     function (err, rows, fields) {
       if (err) throw err
 
