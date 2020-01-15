@@ -42,7 +42,7 @@ function highlight_row() {
       issdate.style.backgroundColor = "orange"
     }
     if ((Date.dateDiff('w', cellDate, currentDate) <= 24) || //determines whether entry is shown as in need of updating
-      (issdate.innerHTML !== 'number') ||
+      // (issdate.innerHTML !== 'number') ||
       (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) ||
       (cmnts.innerHTML.toLowerCase().includes('not in edi')) ||
       (cmnts.innerHTML.toLowerCase().includes('get vendor email')) ||
