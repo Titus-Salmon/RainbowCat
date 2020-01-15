@@ -55,6 +55,7 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
       srcRsObj['Cmnts2'] = rows[i]['comments2'];
       srcRsObj['Cmnts3'] = rows[i]['comments3'];
       srcRsObj['Andr'] = rows[i]['andrea'];
+      srcRsObj['Nathan'] = rows[i]['nathan'];
       srcRsObj['vndemail'] = rows[i]['vendorEmail'];
       srcRsObj['ongDisco'] = rows[i]['ongDisco']
 
@@ -81,6 +82,7 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
   let formInput7 = Object.values(postBody)[7];
   let formInput8 = Object.values(postBody)[8];
   let formInput9 = Object.values(postBody)[9];
+  let formInput10 = Object.values(postBody)[10];
   console.log('formInput0(from autoEmail)==>', formInput0);
   console.log('formInput1(from autoEmail)==>', formInput1);
   console.log('formInput2(from autoEmail)==>', formInput2);
@@ -93,8 +95,8 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
   console.log('formInput9(from autoEmail)==>', formInput9);
 
 
-  if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' &&
-    formInput5 == '' && formInput6 == '' && formInput7 == '' && formInput8 == '' && formInput9 == '') { //return all table entries if search string is empty
+  if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' && formInput5 == '' && formInput6 == '' && formInput7 == '' &&
+    formInput8 == '' && formInput9 == '' && formInput10 == '') { //return all table entries if search string is empty
     connection.query(`SELECT * FROM rainbowcat ORDER BY vendorName ASC;`, function (err, rows, fields) {
       if (err) throw err;
       showSearchResults(rows);
@@ -105,12 +107,13 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
       });
     })
   } else { // if no records found, render vw-noRecords page
-    if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined &&
-      formInput3 !== undefined && formInput4 !== undefined && formInput5 !== undefined &&
-      formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined) {
+    if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined && formInput3 !== undefined && formInput4 !== undefined &&
+      formInput5 !== undefined && formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined &&
+      formInput10 !== undefined) {
       connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%'
       AND issueDate LIKE '${formInput3}%' AND needNewCat LIKE '${formInput4}%' AND updatedWLatest LIKE '${formInput5}%' 
-      AND comments1 LIKE '${formInput6}%' AND comments2 LIKE '${formInput7}%' AND comments3 LIKE '${formInput8}%' AND andrea LIKE '${formInput9}%';`,
+      AND comments1 LIKE '${formInput6}%' AND comments2 LIKE '${formInput7}%' AND comments3 LIKE '${formInput8}%' 
+      AND andrea LIKE '${formInput9}%' AND nathan LIKE '${formInput10}%' ORDER BY vendorName ASC;`,
         function (err, rows, fields) {
           if (err) throw err;
           // console.log('rows==>', rows);

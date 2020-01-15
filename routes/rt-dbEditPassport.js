@@ -59,6 +59,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
       srcRsObj['Cmnts2'] = rows[i]['comments2']
       srcRsObj['Cmnts3'] = rows[i]['comments3']
       srcRsObj['Andr'] = rows[i]['andrea']
+      srcRsObj['Nathan'] = rows[i]['nathan']
       srcRsObj['vndemail'] = rows[i]['vendorEmail']
       srcRsObj['ongDisco'] = rows[i]['ongDisco']
       //console.log(rows[i]['issueDate'])
@@ -84,6 +85,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
   let formInput7 = Object.values(postBody)[7] //cmnt2Post
   let formInput8 = Object.values(postBody)[8] //cmnt3Post
   let formInput9 = Object.values(postBody)[9] //andrPost
+  let formInput10 = Object.values(postBody)[10] //nathanPost
   console.log('formInput0(from dbEditPassport)==>', formInput0)
   console.log('formInput1(from dbEditPassport)==>', formInput1)
   console.log('formInput2(from dbEditPassport)==>', formInput2)
@@ -94,10 +96,11 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
   console.log('formInput7(from dbEditPassport)==>', formInput7)
   console.log('formInput8(from dbEditPassport)==>', formInput8)
   console.log('formInput9(from dbEditPassport)==>', formInput9)
+  console.log('formInput10(from dbEditPassport)==>', formInput10)
 
 
-  if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' &&
-    formInput5 == '' && formInput6 == '' && formInput7 == '' && formInput8 == '' && formInput9 == '') { //return all table entries if search string is empty
+  if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' && formInput5 == '' && formInput6 == '' && formInput7 == '' &&
+    formInput8 == '' && formInput9 == '' && formInput10 == '') { //return all table entries if search string is empty
     connection.query(`SELECT * FROM rainbowcat ORDER BY vendorName ASC;`, function (err, rows, fields) {
       if (err) throw err
       showSearchResults(rows)
@@ -108,12 +111,13 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
       })
     })
   } else { // if no records found, render vw-noRecords page
-    if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined &&
-      formInput3 !== undefined && formInput4 !== undefined && formInput5 !== undefined &&
-      formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined) {
+    if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined && formInput3 !== undefined && formInput4 !== undefined &&
+      formInput5 !== undefined && formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined &&
+      formInput10 !== undefined) {
       connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%'
        AND issueDate LIKE '${formInput3}%' AND needNewCat LIKE '${formInput4}%' AND updatedWLatest LIKE '${formInput5}%' 
-       AND comments1 LIKE '${formInput6}%' AND comments2 LIKE '${formInput7}%' AND comments3 LIKE '${formInput8}%' AND andrea LIKE '${formInput9}%';`,
+       AND comments1 LIKE '${formInput6}%' AND comments2 LIKE '${formInput7}%' AND comments3 LIKE '${formInput8}%' 
+       AND andrea LIKE '${formInput9}%' AND nathan LIKE '${formInput10}%' ORDER BY vendorName ASC;`,
         function (err, rows, fields) {
           if (err) throw err
           // console.log('rows==>', rows)

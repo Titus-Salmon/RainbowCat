@@ -9,8 +9,11 @@ function populateForm() {
     let cmnt2Input = document.getElementById('cmnt2')
     let cmnt3Input = document.getElementById('cmnt3')
     let andrInput = document.getElementById('andr')
+    let nathanInput = document.getElementById('nathan')
     let vndEmlInput = document.getElementById('vndEml')
 
+
+    //v//retrieve data from clicked table row (frontend)/////////////////////////
     prKyInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[0]
     vndNmInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[1]
     ediNmInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[2]
@@ -21,6 +24,7 @@ function populateForm() {
     cmnt2Input.value = JSON.parse(localStorage.getItem("clickedRowData"))[7]
     cmnt3Input.value = JSON.parse(localStorage.getItem("clickedRowData"))[8]
     andrInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[9]
-    vndEmlInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[10]
+    nathanInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[10]
+    vndEmlInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[11]
 }
 populateForm()

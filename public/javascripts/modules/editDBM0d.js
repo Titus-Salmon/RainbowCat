@@ -12,7 +12,7 @@ EditDBbtn.addEventListener('click', function () {
         let retrievedCellData = JSON.parse(localStorage.getItem("clickedRowData"));
 
         console.log('retrievedCellData~~~>', retrievedCellData)
-        window.location = 'http://rainbow--cat.herokuapp.com/editEntryPassport'
+        window.location = 'https://rainbow--cat.herokuapp.com/editEntryPassport'
         // window.location = 'http://localhost:3000/editEntryPassport'
     }
 })
