@@ -33,6 +33,7 @@ function highlight_row() {
     // console.log('issdate.innerHTML==>', issdate.innerHTML)
     let cellDate = new Date(issdate.innerHTML);
 
+    console.log(`issdate.innerHTML==> ${typeof issdate.innerHTML}`)
 
     if (ediname.innerHTML.toLowerCase().includes('no edi id')) {
       ediname.style.backgroundColor = "yellow";
@@ -40,7 +41,8 @@ function highlight_row() {
     if (Date.dateDiff('w', cellDate, currentDate) > 24) { //if issue date of cat is more than 6 months old
       issdate.style.backgroundColor = "orange"
     }
-    if ((Date.dateDiff('w', cellDate, currentDate) <= 24) || //determines whether entry is shown as in need of updating 
+    if ((Date.dateDiff('w', cellDate, currentDate) <= 24) || //determines whether entry is shown as in need of updating
+      (issdate.innerHTML !== 'number') ||
       (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) ||
       (cmnts.innerHTML.toLowerCase().includes('not in edi')) ||
       (cmnts.innerHTML.toLowerCase().includes('get vendor email')) ||

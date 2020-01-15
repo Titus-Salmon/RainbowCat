@@ -8,15 +8,15 @@ const {
 const nodemailer = require('nodemailer');
 
 var mysql = require('mysql')
-// var connection = mysql.createConnection({ //old - from local db setup
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'catRelTrkr'
-// });
+var connection = mysql.createConnection({ //old - from local db setup
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'catRelTrkr'
+});
 
-const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
-connection.connect();
+// const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
+// connection.connect();
 
 /* GET autoEmail page. */
 router.get('/', ensureAuthenticated, function (req, res, next) {
@@ -51,10 +51,12 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
       srcRsObj['IssDt'] = rows[i]['issueDate'];
       srcRsObj['NdNw'] = rows[i]['needNewCat'];
       srcRsObj['Updtd'] = rows[i]['updatedWLatest'];
-      srcRsObj['Rep'] = rows[i]['reporter'];
-      srcRsObj['Cmnts'] = rows[i]['comments'];
+      srcRsObj['Cmnts1'] = rows[i]['comments1'];
+      srcRsObj['Cmnts2'] = rows[i]['comments2'];
+      srcRsObj['Cmnts3'] = rows[i]['comments3'];
       srcRsObj['Andr'] = rows[i]['andrea'];
       srcRsObj['vndemail'] = rows[i]['vendorEmail'];
+      srcRsObj['ongDisco'] = rows[i]['ongDisco']
 
       //console.log(rows[i]['issueDate'])
       searchResults.push(srcRsObj);

@@ -6,15 +6,15 @@ const {
 } = require('../config/auth-t0dt1tz1')
 
 const mysql = require('mysql')
-// const connection = mysql.createConnection({ //old - from local db setup
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'catRelTrkr'
-// })
+const connection = mysql.createConnection({ //old - from local db setup
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'catRelTrkr'
+})
 
-const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL)
-connection.connect()
+// const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL)
+// connection.connect()
 
 /* GET dbEditPassport page. */
 // router.get('/', function (req, res, next) {
@@ -111,15 +111,9 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
     if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined &&
       formInput3 !== undefined && formInput4 !== undefined && formInput5 !== undefined &&
       formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined) {
-      connection.query("SELECT * FROM rainbowcat WHERE vendorName LIKE " + "'" + formInput1 + "%" + "'" +
-        " AND ediName LIKE " + "'" + formInput2 + "%" + "'" +
-        " AND issueDate LIKE " + "'" + formInput3 + "%" + "'" +
-        " AND needNewCat LIKE " + "'" + formInput4 + "%" + "'" +
-        " AND updatedWLatest LIKE " + "'" + formInput5 + "%" + "'" +
-        " AND comments1 LIKE " + "'" + formInput6 + "%" + "'" +
-        " AND comments2 LIKE " + "'" + formInput7 + "%" + "'" +
-        " AND comments3 LIKE " + "'" + formInput8 + "%" + "'" +
-        " AND andrea LIKE " + "'" + formInput9 + "%" + "'",
+      connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%'
+       AND issueDate LIKE '${formInput3}%' AND needNewCat LIKE '${formInput4}%' AND updatedWLatest LIKE '${formInput5}%' 
+       AND comments1 LIKE '${formInput6}%' AND comments2 LIKE '${formInput7}%' AND comments3 LIKE '${formInput8}%' AND andrea LIKE '${formInput9}%';`,
         function (err, rows, fields) {
           if (err) throw err
           // console.log('rows==>', rows)
