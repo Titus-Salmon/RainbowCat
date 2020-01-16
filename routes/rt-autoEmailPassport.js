@@ -303,7 +303,9 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
                               style="color:#006600; font-size:12pt; font-family:Futura Lt BT">Andrea
                               McGrath&nbsp;</span></b><span
                             style="color:#006600; font-size:12pt; font-family:Futura Lt BT">|<b>&nbsp;Wellness
-                              Category Manager</b>&nbsp;</span></p>
+                              Category Manager</b>&nbsp;</span>
+                        </p>
+                        <p><img src="cid:andreaEmailSignatureImage"/></p>
                         <!--<p style="margin-top:0; margin-bottom:0"><img data-imagetype="AttachmentByCid"
                             originalsrc="cid:048eabc2-66e6-4fed-bc20-9e0063ef0fb6"
                             data-custom="AAMkAGM1ZGU4MjczLWIwZDYtNGRhMi1iMmYzLWUxZmRlNmI4MWY3ZQBGAAAAAAAzaHnGLjXSQJHLXLMdffw9BwBfXz8uTm%2BIT7ZCQLTVuVW7AAAAAAEMAABfXz8uTm%2BIT7ZCQLTVuVW7AAB%2FHmJtAAABEgAQAGxSNLx9OnxCsEhdPmUZTZM%3D"
@@ -350,7 +352,12 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
           </div>
         </div>
       </div>
-      ` // html body
+      `, // html body
+      attachments: [{
+        filename: 'rbEmailLogo1.jpg',
+        path: `${process.cwd()}/public/images/rbEmailLogo1.jpg`,
+        cid: 'andreaEmailSignatureImage' //same cid value as in the html img src
+    }]
       });
 
       console.log(`process.cwd()}==> ${process.cwd()}`)
