@@ -1,4 +1,5 @@
-localStorage.clear();
+// localStorage.clear();
+localStorage.removeItem('clickedRowData')
 
 //begin table highlighter////////////////////////////////////////////////////////////////////
 const ResTblBdy = document.getElementById("resTblBdy");
@@ -32,6 +33,7 @@ function highlight_row() {
     // console.log('issdate.innerHTML==>', issdate.innerHTML)
     let cellDate = new Date(issdate.innerHTML);
 
+    console.log(`issdate.innerHTML==> ${typeof issdate.innerHTML}`)
 
     if (ediname.innerHTML.toLowerCase().includes('no edi id')) {
       ediname.style.backgroundColor = "yellow";
@@ -39,7 +41,8 @@ function highlight_row() {
     if (Date.dateDiff('w', cellDate, currentDate) > 24) { //if issue date of cat is more than 6 months old
       issdate.style.backgroundColor = "orange"
     }
-    if ((Date.dateDiff('w', cellDate, currentDate) <= 24) ||
+    if ((Date.dateDiff('w', cellDate, currentDate) <= 24) || //determines whether entry is shown as in need of updating
+      // (issdate.innerHTML !== 'number') ||
       (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) ||
       (cmnts.innerHTML.toLowerCase().includes('not in edi')) ||
       (cmnts.innerHTML.toLowerCase().includes('get vendor email')) ||
@@ -92,13 +95,17 @@ function highlight_row() {
     if (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) {
       cells[i].parentNode.style.backgroundColor = "#ffcc99";
     }
+    if (cmnts.innerHTML.toLowerCase().includes('rqstd cat - resend')) {
+      cells[i].parentNode.style.backgroundColor = "#ffccff";
+    }
 
 
     let clickCounter = 0; //set click counter for how many times a row has been clicked on to 0
 
     // do something on onclick event for cells
     cells[i].onclick = function (event) {
-      localStorage.clear(); //remove any previous cells data
+      // localStorage.clear(); //remove any previous cells data
+      localStorage.removeItem('clickedRowData') //remove any previous cells data
 
       let cellStorage = [];
 

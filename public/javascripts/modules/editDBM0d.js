@@ -2,7 +2,7 @@
 const EditDBbtn = document.getElementById("editDB");
 
 EditDBbtn.addEventListener('click', function () {
-    console.log('editDB button clicked')
+
     let ResTblBdy = document.getElementById('resTblBdy');
     let rows = ResTblBdy.getElementsByTagName('tr');
     if (rows.length > 0 && localStorage.length > 0) {

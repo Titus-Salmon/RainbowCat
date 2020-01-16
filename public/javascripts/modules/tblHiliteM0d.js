@@ -24,7 +24,9 @@ function highlight_row() {
         let issdate = cells[i].parentNode.childNodes[3];
         let need = cells[i].parentNode.childNodes[4];
         let updated = cells[i].parentNode.childNodes[5];
+        let reporter = cells[i].parentNode.childNodes[6];
         let cmnts = cells[i].parentNode.childNodes[7];
+        let userCmnts = cells[i].parentNode.childNodes[8];
         console.log('issdate.innerHTML==>', issdate.innerHTML)
         let cellDate = new Date(issdate.innerHTML);
 
@@ -53,6 +55,15 @@ function highlight_row() {
         if (updated.innerHTML.toLowerCase() == 'yes') {
             updated.style.backgroundColor = "#ccffcc";
         }
+        if (reporter.innerHTML.toLowerCase().includes('wholesale updated')) {
+            reporter.style.backgroundColor = "#00aaaa";
+        }
+        if (reporter.innerHTML.toLowerCase().includes('retail updated')) {
+            reporter.style.backgroundColor = "#00ffcc";
+        }
+        if (reporter.innerHTML.toLowerCase() == 'need wholesale imw') {
+            reporter.style.backgroundColor = "#ffeecc";
+        }
         if (cmnts.innerHTML.toLowerCase().includes('not in edi') || cmnts.innerHTML.toLowerCase().includes('not in titus') || cmnts.innerHTML.toLowerCase().includes('problem:')) {
             cmnts.style.backgroundColor = "#ffb3ca";
         }
@@ -74,6 +85,16 @@ function highlight_row() {
         if (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) {
             cells[i].parentNode.style.backgroundColor = "#ffcc99";
         }
+        if (userCmnts.innerHTML.toLowerCase().includes('sent retail review')) {
+            userCmnts.style.backgroundColor = "#ffab00";
+        }
+        if (userCmnts.innerHTML.toLowerCase().includes('need retail imw')) {
+            userCmnts.style.backgroundColor = "#ff8533";
+        }
+        if (userCmnts.innerHTML.toLowerCase().includes('retail updated')) {
+            userCmnts.style.backgroundColor = "#00ffcc";
+        }
+        //00ffcc
 
 
         let clickCounter = 0; //set click counter for how many times a row has been clicked on to 0
