@@ -27,9 +27,13 @@ function highlight_row() {
     let issdate = cells[i].parentNode.childNodes[3];
     let need = cells[i].parentNode.childNodes[4];
     let updated = cells[i].parentNode.childNodes[5];
-    let cmnts = cells[i].parentNode.childNodes[7];
-    let andcmnts = cells[i].parentNode.childNodes[8]; //placeholder for andrea comment highlights
-    let vndeml = cells[i].parentNode.childNodes[9]; //vendor email column cells
+    let comments1 = cells[i].parentNode.childNodes[6];
+    let comments2 = cells[i].parentNode.childNodes[7];
+    let comments3 = cells[i].parentNode.childNodes[8];
+    // let cmnts = cells[i].parentNode.childNodes[7];
+    let andcmnts = cells[i].parentNode.childNodes[9]; //placeholder for andrea comment highlights
+    let nathancmnts = cells[i].parentNode.childNodes[10]; //placeholder for andrea comment highlights
+    let vndeml = cells[i].parentNode.childNodes[11]; //vendor email column cells
     // console.log('issdate.innerHTML==>', issdate.innerHTML)
     let cellDate = new Date(issdate.innerHTML);
 
@@ -43,12 +47,12 @@ function highlight_row() {
     }
     if ((Date.dateDiff('w', cellDate, currentDate) <= 24) || //determines whether entry is shown as in need of updating
       // (issdate.innerHTML !== 'number') ||
-      (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) ||
-      (cmnts.innerHTML.toLowerCase().includes('not in edi')) ||
-      (cmnts.innerHTML.toLowerCase().includes('get vendor email')) ||
-      (cmnts.innerHTML.toLowerCase().includes('discont')) ||
+      (comments2.innerHTML.toLowerCase().includes('ignore auto-email')) ||
+      (comments2.innerHTML.toLowerCase().includes('not in edi')) ||
+      (comments2.innerHTML.toLowerCase().includes('get vendor email')) ||
+      (comments2.innerHTML.toLowerCase().includes('discont')) ||
       (need.innerHTML.toLowerCase().includes('periodicity')) ||
-      (cmnts.innerHTML.toLowerCase().includes('requested cat'))) {
+      (comments2.innerHTML.toLowerCase().includes('requested cat'))) {
       cells[i].parentNode.style.display = "none";
       //if issue date of cat is <= 6 months old OR vendor is being discontinued, OR
       //vendor may have low periodicity of catalog updates, DO NOT SHOW THEM
@@ -74,28 +78,28 @@ function highlight_row() {
     if (updated.innerHTML.toLowerCase() == 'yes') {
       updated.style.backgroundColor = "#ccffcc";
     }
-    if (cmnts.innerHTML.toLowerCase().includes('not in edi') || cmnts.innerHTML.toLowerCase().includes('not in titus') || cmnts.innerHTML.toLowerCase().includes('problem:')) {
-      cmnts.style.backgroundColor = "#ffb3ca";
+    if (comments2.innerHTML.toLowerCase().includes('not in edi') || comments2.innerHTML.toLowerCase().includes('not in titus') || comments2.innerHTML.toLowerCase().includes('problem:')) {
+      comments2.style.backgroundColor = "#ffb3ca";
     }
-    if (cmnts.innerHTML.toLowerCase().includes('solved:')) {
-      cmnts.style.backgroundColor = "#ccffcc";
+    if (comments2.innerHTML.toLowerCase().includes('solved:')) {
+      comments2.style.backgroundColor = "#ccffcc";
     }
-    if (cmnts.innerHTML.toLowerCase().includes('requested cat')) {
+    if (comments2.innerHTML.toLowerCase().includes('requested cat')) {
       cells[i].parentNode.style.backgroundColor = "#ccd9ff";
     }
-    if (cmnts.innerHTML.toLowerCase().includes('discont')) {
+    if (comments2.innerHTML.toLowerCase().includes('discont')) {
       cells[i].parentNode.style.backgroundColor = "#999966";
     }
-    if (cmnts.innerHTML.toLowerCase().includes('question:')) {
+    if (comments2.innerHTML.toLowerCase().includes('question:')) {
       cells[i].parentNode.style.backgroundColor = "#ffdb4b";
     }
-    if (cmnts.innerHTML.toLowerCase().includes('todo')) {
+    if (comments2.innerHTML.toLowerCase().includes('todo')) {
       cells[i].parentNode.style.backgroundColor = "#ff0000";
     }
-    if (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) {
+    if (comments2.innerHTML.toLowerCase().includes('ignore auto-email')) {
       cells[i].parentNode.style.backgroundColor = "#ffcc99";
     }
-    if (cmnts.innerHTML.toLowerCase().includes('rqstd cat - resend')) {
+    if (comments2.innerHTML.toLowerCase().includes('rqstd cat - resend')) {
       cells[i].parentNode.style.backgroundColor = "#ffccff";
     }
 
@@ -165,7 +169,7 @@ function highlight_row() {
     let rowStyle = window.getComputedStyle(rowsArray[r]).getPropertyValue('display');
     console.log('rowStyle==>', rowStyle)
     if (rowStyle != 'none') {
-      var receiverEmail_t0d = (rowsArray[r].childNodes[9].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
+      var receiverEmail_t0d = (rowsArray[r].childNodes[11].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
       receiverEmailAddrArray.push(receiverEmail_t0d);
       console.log('receiverEmail_t0d==>', receiverEmail_t0d)
 

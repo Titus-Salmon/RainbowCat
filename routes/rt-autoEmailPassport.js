@@ -64,8 +64,8 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
       searchResultsForCSV.push(srcRsObj);
       // console.log('srcRsObj==>', srcRsObj)
     }
-    console.log('searchResults from showSearchResults()==>', searchResults)
-    console.log('searchResultsForCSV from showSearchResults()==>', searchResultsForCSV)
+    // console.log('searchResults from showSearchResults()==>', searchResults)
+    // console.log('searchResultsForCSV from showSearchResults()==>', searchResultsForCSV)
 
 
   }
@@ -375,6 +375,7 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
         //cause that entry to no longer be displayed as a catalog in need of updating
         for (let i = 0; i < successfulEmailArray.length; i++) {
           connection.query(`UPDATE rainbowcat SET comments2 = 'requested cat (auto-email)' WHERE vendorName = '${successfulEmailArray[i]}';`)
+          console.log(`successfullEmailArray[${i}]==> ${successfulEmailArray[i]}`)
         }
       }
       updateDBAfterEmailing();
