@@ -6,15 +6,15 @@ const {
 } = require('../config/auth-t0dt1tz1');
 
 var mysql = require('mysql')
-// var connection = mysql.createConnection({ //old - from local db setup
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'catRelTrkr'
-// });
+var connection = mysql.createConnection({ //old - from local db setup
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'catRelTrkr'
+});
 
-const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
-connection.connect();
+// const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
+// connection.connect();
 
 /* GET db-input page. */
 router.get('/', ensureAuthenticated, function (req, res, next) {
