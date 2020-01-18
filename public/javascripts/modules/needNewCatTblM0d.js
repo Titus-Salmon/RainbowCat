@@ -37,7 +37,9 @@ function highlight_row() {
     // console.log('issdate.innerHTML==>', issdate.innerHTML)
     let cellDate = new Date(issdate.innerHTML);
 
-    console.log(`issdate.innerHTML==> ${typeof issdate.innerHTML}`)
+    console.log(`ediname|cellDate|dateDiff|comments2|need==> ${ediname.innerHTML}|${cellDate}|${Date.dateDiff('w', cellDate, currentDate)}|${comments2.innerHTML}|${need.innerHTML}`)
+
+    // console.log(`issdate.innerHTML==> ${typeof issdate.innerHTML}`)
 
     if (ediname.innerHTML.toLowerCase().includes('no edi id')) {
       ediname.style.backgroundColor = "yellow";
@@ -51,7 +53,7 @@ function highlight_row() {
       (comments2.innerHTML.toLowerCase().includes('not in edi')) ||
       (comments2.innerHTML.toLowerCase().includes('get vendor email')) ||
       (comments2.innerHTML.toLowerCase().includes('discont')) ||
-      (need.innerHTML.toLowerCase().includes('periodicity')) ||
+      // (need.innerHTML.toLowerCase().includes('periodicity')) ||
       (comments2.innerHTML.toLowerCase().includes('requested cat'))) {
       cells[i].parentNode.style.display = "none";
       //if issue date of cat is <= 6 months old OR vendor is being discontinued, OR
