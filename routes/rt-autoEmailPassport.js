@@ -224,7 +224,7 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
                   style="font-size:11pt; font-family:Calibri,sans-serif; background-color:white; margin:0; line-height:115%">
                   <span style="color:black; font-size:12pt">Our records indicate that the latest
                   ` + autoEmailVendorNameArray[i] +
-                  ` catalog we have is 6 or more months old.
+          ` catalog we have is 6 or more months old.
                     <u>Can you please send us your latest catalog (in Excel format), if you have anything
                       more recent?
                     </u></span></p>
@@ -351,11 +351,11 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
         </div>
       </div>
       `, // html body
-      attachments: [{
-        filename: 'rbEmailLogo1.jpg',
-        path: `${process.cwd()}/public/images/rbEmailLogo1.jpg`,
-        cid: 'andreaEmailSignatureImage' //same cid value as in the html img src
-    }]
+        attachments: [{
+          filename: 'rbEmailLogo1.jpg',
+          path: `${process.cwd()}/public/images/rbEmailLogo1.jpg`,
+          cid: 'andreaEmailSignatureImage' //same cid value as in the html img src
+        }]
       });
 
       console.log(`process.cwd()}==> ${process.cwd()}`)
