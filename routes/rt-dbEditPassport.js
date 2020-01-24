@@ -5,7 +5,7 @@ const {
   ensureAuthenticated
 } = require('../config/auth-t0dt1tz1')
 
-const mysql = require('mysql')
+// const mysql = require('mysql')
 // const connection = mysql.createConnection({ //old - from local db setup
 //   host: 'localhost',
 //   user: 'root',

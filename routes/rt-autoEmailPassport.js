@@ -7,7 +7,7 @@ const {
 
 const nodemailer = require('nodemailer');
 
-var mysql = require('mysql')
+// var mysql = require('mysql')
 // var connection = mysql.createConnection({ //old - from local db setup
 //   host: 'localhost',
 //   user: 'root',
