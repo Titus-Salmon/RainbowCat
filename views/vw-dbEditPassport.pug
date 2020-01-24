@@ -63,15 +63,16 @@ html
 						th(onclick="sortTable(1)") Vendor_Name
 						th(onclick="sortTable(2)") EDI_Name
 						th(onclick="sortTable(3)") Issue_Date
-						th(onclick="sortTable(4)") Need New Catalog?
-						th(onclick="sortTable(5)") Updated w/ Latest?
+						th(onclick="sortTable(4)" style="display:none") Need New Catalog?
+						th(onclick="sortTable(5)" style="display:none") Updated w/ Latest?
 						th(onclick="sortTable(6)" style="min-width:15rem") ___Comments1___
 						th(onclick="sortTable(7)" style="min-width:15rem") ___Comments2___
 						th(onclick="sortTable(8)" style="min-width:15rem") ___Comments3___
 						th(onclick="sortTable(9)" style="min-width:15rem") Andrea_Comments
 						th(onclick="sortTable(10)" style="min-width:15rem") Nathan_Comments
 						th(onclick="sortTable(11)") Vendor Email (for auto-emails)
-						th(onclick="sortTable(12)") Ongoing Disco
+						th(onclick="sortTable(12)") Wellness Margins
+						th(onclick="sortTable(13)") Ongoing Disco
 
 
 
@@ -83,14 +84,15 @@ html
 								td= elmnt.Vendor
 								td= elmnt.EDI
 								td= elmnt.IssDt
-								td= elmnt.NdNw
-								td= elmnt.Updtd
+								td(style="display:none")= elmnt.NdNw
+								td(style="display:none")= elmnt.Updtd
 								td= elmnt.Cmnts1
 								td= elmnt.Cmnts2
 								td= elmnt.Cmnts3
 								td= elmnt.Andr
 								td= elmnt.Nathan
 								td= elmnt.vndemail
+								td= elmnt.wellMarg
 								td= elmnt.ongDisco
 
 

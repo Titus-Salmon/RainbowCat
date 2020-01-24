@@ -6,6 +6,7 @@ const {
 } = require('../config/auth-t0dt1tz1');
 
 var mysql = require('mysql')
+
 // var connection = mysql.createConnection({ //old - from local db setup
 //   host: 'localhost',
 //   user: 'root',

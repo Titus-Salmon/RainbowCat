@@ -8,6 +8,7 @@ const {
 const nodemailer = require('nodemailer');
 
 var mysql = require('mysql')
+
 // var connection = mysql.createConnection({ //old - from local db setup
 //   host: 'localhost',
 //   user: 'root',
@@ -64,8 +65,8 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
       searchResultsForCSV.push(srcRsObj);
       // console.log('srcRsObj==>', srcRsObj)
     }
-    console.log('searchResults from showSearchResults()==>', searchResults)
-    console.log('searchResultsForCSV from showSearchResults()==>', searchResultsForCSV)
+    // console.log('searchResults from showSearchResults()==>', searchResults)
+    // console.log('searchResultsForCSV from showSearchResults()==>', searchResultsForCSV)
 
 
   }
@@ -82,7 +83,6 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
   let formInput7 = Object.values(postBody)[7];
   let formInput8 = Object.values(postBody)[8];
   let formInput9 = Object.values(postBody)[9];
-  let formInput10 = Object.values(postBody)[10];
   console.log('formInput0(from autoEmail)==>', formInput0);
   console.log('formInput1(from autoEmail)==>', formInput1);
   console.log('formInput2(from autoEmail)==>', formInput2);
@@ -96,7 +96,7 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
 
 
   if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' && formInput5 == '' && formInput6 == '' && formInput7 == '' &&
-    formInput8 == '' && formInput9 == '' && formInput10 == '') { //return all table entries if search string is empty
+    formInput8 == '' && formInput9 == '') { //return all table entries if search string is empty
     connection.query(`SELECT * FROM rainbowcat ORDER BY vendorName ASC;`, function (err, rows, fields) {
       if (err) throw err;
       showSearchResults(rows);
@@ -108,8 +108,7 @@ router.post('/results', (req, res, next) => { //take POST request data from vw-a
     })
   } else { // if no records found, render vw-noRecords page
     if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined && formInput3 !== undefined && formInput4 !== undefined &&
-      formInput5 !== undefined && formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined &&
-      formInput10 !== undefined) {
+      formInput5 !== undefined && formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined) {
       connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%'
       AND issueDate LIKE '${formInput3}%' AND needNewCat LIKE '${formInput4}%' AND updatedWLatest LIKE '${formInput5}%' 
       AND comments1 LIKE '${formInput6}%' AND comments2 LIKE '${formInput7}%' AND comments3 LIKE '${formInput8}%' 
@@ -226,7 +225,7 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
                   style="font-size:11pt; font-family:Calibri,sans-serif; background-color:white; margin:0; line-height:115%">
                   <span style="color:black; font-size:12pt">Our records indicate that the latest
                   ` + autoEmailVendorNameArray[i] +
-                  ` catalog we have is 6 or more months old.
+          ` catalog we have is 6 or more months old.
                     <u>Can you please send us your latest catalog (in Excel format), if you have anything
                       more recent?
                     </u></span></p>
@@ -353,11 +352,11 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
         </div>
       </div>
       `, // html body
-      attachments: [{
-        filename: 'rbEmailLogo1.jpg',
-        path: `${process.cwd()}/public/images/rbEmailLogo1.jpg`,
-        cid: 'andreaEmailSignatureImage' //same cid value as in the html img src
-    }]
+        attachments: [{
+          filename: 'rbEmailLogo1.jpg',
+          path: `${process.cwd()}/public/images/rbEmailLogo1.jpg`,
+          cid: 'andreaEmailSignatureImage' //same cid value as in the html img src
+        }]
       });
 
       console.log(`process.cwd()}==> ${process.cwd()}`)
@@ -377,6 +376,7 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
         //cause that entry to no longer be displayed as a catalog in need of updating
         for (let i = 0; i < successfulEmailArray.length; i++) {
           connection.query(`UPDATE rainbowcat SET comments2 = 'requested cat (auto-email)' WHERE vendorName = '${successfulEmailArray[i]}';`)
+          console.log(`successfullEmailArray[${i}]==> ${successfulEmailArray[i]}`)
         }
       }
       updateDBAfterEmailing();

@@ -6,6 +6,7 @@ const {
 } = require('../config/auth-t0dt1tz1')
 
 const mysql = require('mysql')
+
 // const connection = mysql.createConnection({ //old - from local db setup
 //   host: 'localhost',
 //   user: 'root',
@@ -61,6 +62,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
       srcRsObj['Andr'] = rows[i]['andrea']
       srcRsObj['Nathan'] = rows[i]['nathan']
       srcRsObj['vndemail'] = rows[i]['vendorEmail']
+      srcRsObj['wellMarg'] = rows[i]['wellnessMargins']
       srcRsObj['ongDisco'] = rows[i]['ongDisco']
       //console.log(rows[i]['issueDate'])
       searchResults.push(srcRsObj)

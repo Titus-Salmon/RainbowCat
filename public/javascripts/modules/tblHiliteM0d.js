@@ -20,15 +20,31 @@ function highlight_row() {
         console.log('cells[i].parentNode==>', cells[i].parentNode)
         console.log('cells[i].parentNode.childNodes==>', cells[i].parentNode.childNodes)
         console.log('cells[i].parentNode.childNodes[0].innerHTML==>', cells[i].parentNode.childNodes[0].innerHTML)
+        // let ediname = cells[i].parentNode.childNodes[2];
+        // let issdate = cells[i].parentNode.childNodes[3];
+        // let need = cells[i].parentNode.childNodes[4];
+        // let updated = cells[i].parentNode.childNodes[5];
+        // let reporter = cells[i].parentNode.childNodes[6];
+        // let cmnts = cells[i].parentNode.childNodes[7];
+        // let userCmnts = cells[i].parentNode.childNodes[8];
+        // console.log('issdate.innerHTML==>', issdate.innerHTML)
+        // let cellDate = new Date(issdate.innerHTML);
+
         let ediname = cells[i].parentNode.childNodes[2];
         let issdate = cells[i].parentNode.childNodes[3];
         let need = cells[i].parentNode.childNodes[4];
         let updated = cells[i].parentNode.childNodes[5];
-        let reporter = cells[i].parentNode.childNodes[6];
-        let cmnts = cells[i].parentNode.childNodes[7];
-        let userCmnts = cells[i].parentNode.childNodes[8];
-        console.log('issdate.innerHTML==>', issdate.innerHTML)
-        let cellDate = new Date(issdate.innerHTML);
+        let comments1 = cells[i].parentNode.childNodes[6];
+        let comments2 = cells[i].parentNode.childNodes[7];
+        let comments3 = cells[i].parentNode.childNodes[8];
+        // let cmnts = cells[i].parentNode.childNodes[7];
+        let andcmnts = cells[i].parentNode.childNodes[9]; //placeholder for andrea comment highlights
+        let nathancmnts = cells[i].parentNode.childNodes[10]; //placeholder for andrea comment highlights
+        let vndeml = cells[i].parentNode.childNodes[11]; //vendor email column cells
+        // console.log('issdate.innerHTML==>', issdate.innerHTML)
+				let cellDate = new Date(issdate.innerHTML);
+				
+				console.log(`ediname|cellDate|dateDiff==> ${ediname.innerHTML}|${cellDate}|${Date.dateDiff('w', cellDate, currentDate)}`)
 
 
         if (ediname.innerHTML.toLowerCase().includes('no edi id')) {
@@ -55,44 +71,44 @@ function highlight_row() {
         if (updated.innerHTML.toLowerCase() == 'yes') {
             updated.style.backgroundColor = "#ccffcc";
         }
-        if (reporter.innerHTML.toLowerCase().includes('wholesale updated')) {
-            reporter.style.backgroundColor = "#00aaaa";
+        if (comments1.innerHTML.toLowerCase().includes('wholesale updated')) {
+            comments1.style.backgroundColor = "#00aaaa";
         }
-        if (reporter.innerHTML.toLowerCase().includes('retail updated')) {
-            reporter.style.backgroundColor = "#00ffcc";
+        if (comments1.innerHTML.toLowerCase().includes('retail updated')) {
+            comments1.style.backgroundColor = "#00ffcc";
         }
-        if (reporter.innerHTML.toLowerCase() == 'need wholesale imw') {
-            reporter.style.backgroundColor = "#ffeecc";
+        if (comments1.innerHTML.toLowerCase() == 'need wholesale imw') {
+            comments1.style.backgroundColor = "#ffeecc";
         }
-        if (cmnts.innerHTML.toLowerCase().includes('not in edi') || cmnts.innerHTML.toLowerCase().includes('not in titus') || cmnts.innerHTML.toLowerCase().includes('problem:')) {
-            cmnts.style.backgroundColor = "#ffb3ca";
+        if (comments2.innerHTML.toLowerCase().includes('not in edi') || comments2.innerHTML.toLowerCase().includes('not in titus') || comments2.innerHTML.toLowerCase().includes('problem:')) {
+            comments2.style.backgroundColor = "#ffb3ca";
         }
-        if (cmnts.innerHTML.toLowerCase().includes('solved:')) {
-            cmnts.style.backgroundColor = "#ccffcc";
+        if (comments2.innerHTML.toLowerCase().includes('solved:')) {
+            comments2.style.backgroundColor = "#ccffcc";
         }
-        if (cmnts.innerHTML.toLowerCase().includes('requested cat')) {
+        if (comments2.innerHTML.toLowerCase().includes('requested cat')) {
             cells[i].parentNode.style.backgroundColor = "#ccd9ff";
         }
-        if (cmnts.innerHTML.toLowerCase().includes('discont')) {
+        if (comments2.innerHTML.toLowerCase().includes('discont')) {
             cells[i].parentNode.style.backgroundColor = "#999966";
         }
-        if (cmnts.innerHTML.toLowerCase().includes('question:')) {
+        if (comments2.innerHTML.toLowerCase().includes('question:')) {
             cells[i].parentNode.style.backgroundColor = "#ffdb4b";
         }
-        if (cmnts.innerHTML.toLowerCase().includes('todo')) {
+        if (comments2.innerHTML.toLowerCase().includes('todo')) {
             cells[i].parentNode.style.backgroundColor = "#ff0000";
         }
-        if (cmnts.innerHTML.toLowerCase().includes('ignore auto-email')) {
+        if (comments2.innerHTML.toLowerCase().includes('ignore auto-email')) {
             cells[i].parentNode.style.backgroundColor = "#ffcc99";
         }
-        if (userCmnts.innerHTML.toLowerCase().includes('sent retail review')) {
-            userCmnts.style.backgroundColor = "#ffab00";
+        if (comments3.innerHTML.toLowerCase().includes('sent retail review')) {
+            comments3.style.backgroundColor = "#ffab00";
         }
-        if (userCmnts.innerHTML.toLowerCase().includes('need retail imw')) {
-            userCmnts.style.backgroundColor = "#ff8533";
+        if (comments3.innerHTML.toLowerCase().includes('need retail imw')) {
+            comments3.style.backgroundColor = "#ff8533";
         }
-        if (userCmnts.innerHTML.toLowerCase().includes('retail updated')) {
-            userCmnts.style.backgroundColor = "#00ffcc";
+        if (comments3.innerHTML.toLowerCase().includes('retail updated')) {
+            comments3.style.backgroundColor = "#00ffcc";
         }
         //00ffcc
 
