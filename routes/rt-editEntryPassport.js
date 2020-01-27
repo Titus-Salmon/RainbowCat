@@ -7,14 +7,15 @@ const {
 
 var mysql = require('mysql')
 
-// var connection = mysql.createConnection({ //old - from local db setup
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'catRelTrkr'
+// const connection = mysql.createConnection({
+//   host: process.env.LOCAL_JAWSDBMARIA_HOST,
+//   user: process.env.LOCAL_JAWSDBMARIA_USERNAME,
+//   password: process.env.LOCAL_JAWSDBMARIA_PW,
+//   database: process.env.LOCAL_JAWSDBMARIA_DATABASE
 // });
 
 const connection = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
+
 connection.connect();
 
 /* GET db-input page. */
@@ -45,7 +46,7 @@ router.post('/formPost', (req, res, next) => { //take POST request data from db-
   //into input fields & mysql won't reject it. Why you have to replace with "''" instead of "\'" isn't exactly clear
   console.log('formInput8(from dbinput)==>', formInput8);
 
-  connection.query(`UPDATE rainbowcat SET vendorName = '${formInput1}', ediName = '${formInput2}', issueDate = '${formInput3}', 
+  connection.query(`UPDATE rainbowcat SET VENDORNAME = '${formInput1}', ediName = '${formInput2}', issueDate = '${formInput3}', 
   needNewCat = '${formInput4}', updatedWLatest = '${formInput5}', comments1 = '${formInput6}', comments2 = '${formInput7}', 
   comments3 = '${formInput8}', andrea = '${formInput9}', nathan = '${formInput10}', vendorEmail = '${formInput11}' 
   WHERE prim_key = '${formInput0}';`,
