@@ -52,7 +52,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
     for (let i = 0; i < rows.length; i++) { //add searched-for table entries from db to searchResults array
       let srcRsObj = {}
       srcRsObj['P_K'] = rows[i]['prim_key']
-      srcRsObj['Vendor'] = rows[i]['VENDORNAME']
+      srcRsObj['Vendor'] = rows[i]['vendorName']
       srcRsObj['EDI'] = rows[i]['ediName']
       srcRsObj['IssDt'] = rows[i]['issueDate']
       srcRsObj['NdNw'] = rows[i]['needNewCat']
@@ -104,7 +104,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
 
   if (formInput1 == '' && formInput2 == '' && formInput3 == '' && formInput4 == '' && formInput5 == '' && formInput6 == '' && formInput7 == '' &&
     formInput8 == '' && formInput9 == '' && formInput10 == '') { //return all table entries if search string is empty
-    connection.query(`SELECT * FROM rainbowcat ORDER BY VENDORNAME ASC;`, function (err, rows, fields) {
+    connection.query(`SELECT * FROM rainbowcat ORDER BY vendorName ASC;`, function (err, rows, fields) {
       if (err) throw err
       showSearchResults(rows)
 
@@ -117,10 +117,10 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
     if (formInput0 !== undefined && formInput1 !== undefined && formInput2 !== undefined && formInput3 !== undefined && formInput4 !== undefined &&
       formInput5 !== undefined && formInput6 !== undefined && formInput7 !== undefined && formInput8 !== undefined && formInput9 !== undefined &&
       formInput10 !== undefined) {
-      connection.query(`SELECT * FROM rainbowcat WHERE VENDORNAME LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%'
+      connection.query(`SELECT * FROM rainbowcat WHERE vendorName LIKE '${formInput1}%' AND ediName LIKE '${formInput2}%'
        AND issueDate LIKE '${formInput3}%' AND needNewCat LIKE '${formInput4}%' AND updatedWLatest LIKE '${formInput5}%' 
        AND comments1 LIKE '${formInput6}%' AND comments2 LIKE '${formInput7}%' AND comments3 LIKE '${formInput8}%' 
-       AND andrea LIKE '${formInput9}%' AND nathan LIKE '${formInput10}%' ORDER BY VENDORNAME ASC;`,
+       AND andrea LIKE '${formInput9}%' AND nathan LIKE '${formInput10}%' ORDER BY vendorName ASC;`,
         function (err, rows, fields) {
           if (err) throw err
           // console.log('rows==>', rows)
