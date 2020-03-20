@@ -10,7 +10,7 @@ let userEml = localStorage.getItem('userEmail_localStorage')
 console.log('userEml from adminM0d.js==>', userEml)
 
 
-if (userEml !== process.env.TITUS_ADMIN_EMAIL) { //include admin email address(es) as .env variables
+if (userEml !== TITUS_ADMIN_EMAIL) { //include admin email address(es) as .env variables
 	console.log('user is not an admin (from adminM0d.js)')
 	for (let i = 0; i < adminButtonClassCollection.length; i++) {
 		adminButtonClassCollection[i].disabled = true;
@@ -22,7 +22,7 @@ if (userEml !== process.env.TITUS_ADMIN_EMAIL) { //include admin email address(e
 	}
 }
 
-if (userEml !== process.env.TITUS_ADMIN_EMAIL && userEml !== process.env.ANDREA_ADMIN_EMAIL) { //include admin email address(es) as .env variables
+if (userEml !== TITUS_ADMIN_EMAIL && userEml !== ANDREA_ADMIN_EMAIL) { //include admin email address(es) as .env variables
 	for (let i = 0; i < autoEmailButtonClassCollection.length; i++) {
 		autoEmailButtonClassCollection[i].disabled = true;
 		autoEmailButtonClassCollection[i].style.backgroundColor = '#ff66ff';

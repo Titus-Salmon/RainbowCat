@@ -26,11 +26,14 @@ connection.connect()
 // })
 
 router.get('/', ensureAuthenticated, function (req, res, next) {
+
   res.render('vw-dbEditPassport', {
     title: 'Search & Edit Catalog Tracker Database',
     username: req.user.name,
     userEmail: req.user.email,
     userEmail_stringified: JSON.stringify(req.user.email),
+    TITUS_ADMIN_EMAIL: process.env.TITUS_ADMIN_EMAIL,
+    ANDREA_ADMIN_EMAIL: process.env.ANDREA_ADMIN_EMAIL,
   })
 })
 
