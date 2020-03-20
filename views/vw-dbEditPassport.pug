@@ -6,6 +6,10 @@ html
 	body
 		include partials/header.pug
 		include partials/subHeader.pug
+
+		script.
+			console.log(`TITUS_ADMIN_EMAIL==> ${TITUS_ADMIN_EMAIL}`)
+			
 		div.input-field-1
 			h3(style="margin-top: 0")= title
 
