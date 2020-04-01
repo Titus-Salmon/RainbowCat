@@ -76,6 +76,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
       srcRsObj['special1'] = rows[i]['special1']
       srcRsObj['disco_appld_to'] = rows[i]['disco_appld_to']
       srcRsObj['sales_method'] = rows[i]['sales_method']
+      srcRsObj['min_order'] = rows[i]['min_order']
       //console.log(rows[i]['issueDate'])
       searchResults.push(srcRsObj)
       searchResultsForCSV.push(srcRsObj)
