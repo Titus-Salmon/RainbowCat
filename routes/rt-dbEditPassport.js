@@ -57,6 +57,7 @@ router.post('/results', (req, res, next) => { //take POST request data from dbEd
   function showSearchResults(rows) {
     for (let i = 0; i < rows.length; i++) { //add searched-for table entries from db to searchResults array
       let srcRsObj = {}
+      srcRsObj['lineNumber'] = i
       srcRsObj['P_K'] = rows[i]['prim_key']
       srcRsObj['Vendor'] = rows[i]['vendorName']
       srcRsObj['EDI'] = rows[i]['ediName']
