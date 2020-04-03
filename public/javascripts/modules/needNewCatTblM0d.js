@@ -23,17 +23,17 @@ function highlight_row() {
     // console.log('cells[i].parentNode==>', cells[i].parentNode)
     // console.log('cells[i].parentNode.childNodes==>', cells[i].parentNode.childNodes)
     // console.log('cells[i].parentNode.childNodes[0].innerHTML==>', cells[i].parentNode.childNodes[0].innerHTML)
-    let ediname = cells[i].parentNode.childNodes[3];
-    let issdate = cells[i].parentNode.childNodes[4];
-    let need = cells[i].parentNode.childNodes[5];
-    let updated = cells[i].parentNode.childNodes[6];
-    let comments1 = cells[i].parentNode.childNodes[7];
-    let comments2 = cells[i].parentNode.childNodes[8];
-    let comments3 = cells[i].parentNode.childNodes[9];
+    let ediname = cells[i].parentNode.childNodes[2];
+    let issdate = cells[i].parentNode.childNodes[3];
+    let need = cells[i].parentNode.childNodes[4];
+    let updated = cells[i].parentNode.childNodes[5];
+    let comments1 = cells[i].parentNode.childNodes[6];
+    let comments2 = cells[i].parentNode.childNodes[7];
+    let comments3 = cells[i].parentNode.childNodes[8];
     // let cmnts = cells[i].parentNode.childNodes[7];
-    let andcmnts = cells[i].parentNode.childNodes[10]; //placeholder for andrea comment highlights
-    let nathancmnts = cells[i].parentNode.childNodes[11]; //placeholder for andrea comment highlights
-    let vndeml = cells[i].parentNode.childNodes[12]; //vendor email column cells
+    let andcmnts = cells[i].parentNode.childNodes[9]; //placeholder for andrea comment highlights
+    let nathancmnts = cells[i].parentNode.childNodes[10]; //placeholder for andrea comment highlights
+    let vndeml = cells[i].parentNode.childNodes[11]; //vendor email column cells
     // console.log('issdate.innerHTML==>', issdate.innerHTML)
     let cellDate = new Date(issdate.innerHTML);
 
@@ -171,11 +171,11 @@ function highlight_row() {
     let rowStyle = window.getComputedStyle(rowsArray[r]).getPropertyValue('display');
     console.log('rowStyle==>', rowStyle)
     if (rowStyle != 'none') {
-      var receiverEmail_t0d = (rowsArray[r].childNodes[12].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
+      var receiverEmail_t0d = (rowsArray[r].childNodes[11].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
       receiverEmailAddrArray.push(receiverEmail_t0d);
       console.log('receiverEmail_t0d==>', receiverEmail_t0d)
 
-      var vendorName_t0d = (rowsArray[r].childNodes[2].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
+      var vendorName_t0d = (rowsArray[r].childNodes[1].innerHTML).replace(/&amp;/, "&"); //replace &amp; with &
       vendorNameArray.push(vendorName_t0d);
       console.log('vendorName_t0d==>', vendorName_t0d)
     }
