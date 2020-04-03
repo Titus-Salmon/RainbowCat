@@ -30,21 +30,21 @@ function highlight_row() {
         // console.log('issdate.innerHTML==>', issdate.innerHTML)
         // let cellDate = new Date(issdate.innerHTML);
 
-        let ediname = cells[i].parentNode.childNodes[2];
-        let issdate = cells[i].parentNode.childNodes[3];
-        let need = cells[i].parentNode.childNodes[4];
-        let updated = cells[i].parentNode.childNodes[5];
-        let comments1 = cells[i].parentNode.childNodes[6];
-        let comments2 = cells[i].parentNode.childNodes[7];
-        let comments3 = cells[i].parentNode.childNodes[8];
+        let ediname = cells[i].parentNode.childNodes[3];
+        let issdate = cells[i].parentNode.childNodes[4];
+        let need = cells[i].parentNode.childNodes[5];
+        let updated = cells[i].parentNode.childNodes[6];
+        let comments1 = cells[i].parentNode.childNodes[7];
+        let comments2 = cells[i].parentNode.childNodes[8];
+        let comments3 = cells[i].parentNode.childNodes[9];
         // let cmnts = cells[i].parentNode.childNodes[7];
-        let andcmnts = cells[i].parentNode.childNodes[9]; //placeholder for andrea comment highlights
-        let nathancmnts = cells[i].parentNode.childNodes[10]; //placeholder for andrea comment highlights
-        let vndeml = cells[i].parentNode.childNodes[11]; //vendor email column cells
+        let andcmnts = cells[i].parentNode.childNodes[10]; //placeholder for andrea comment highlights
+        let nathancmnts = cells[i].parentNode.childNodes[11]; //placeholder for andrea comment highlights
+        let vndeml = cells[i].parentNode.childNodes[12]; //vendor email column cells
         // console.log('issdate.innerHTML==>', issdate.innerHTML)
-				let cellDate = new Date(issdate.innerHTML);
-				
-				console.log(`ediname|cellDate|dateDiff==> ${ediname.innerHTML}|${cellDate}|${Date.dateDiff('w', cellDate, currentDate)}`)
+        let cellDate = new Date(issdate.innerHTML);
+
+        console.log(`ediname|cellDate|dateDiff==> ${ediname.innerHTML}|${cellDate}|${Date.dateDiff('w', cellDate, currentDate)}`)
 
 
         if (ediname.innerHTML.toLowerCase().includes('no edi id')) {
