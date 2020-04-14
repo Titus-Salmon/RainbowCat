@@ -15,16 +15,16 @@ function populateForm() {
 
     //v//retrieve data from clicked table row (frontend)/////////////////////////
     prKyInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[0]
-    vndNmInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[1]
-    ediNmInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[2]
-    issuDtInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[3]
-    ndNwCtInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[4]
-    updtwLtstInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[5]
-    cmnt1Input.value = JSON.parse(localStorage.getItem("clickedRowData"))[6]
-    cmnt2Input.value = JSON.parse(localStorage.getItem("clickedRowData"))[7]
-    cmnt3Input.value = JSON.parse(localStorage.getItem("clickedRowData"))[8]
-    andrInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[9]
-    nathanInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[10]
-    vndEmlInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[11]
+    vndNmInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[2]
+    ediNmInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[3]
+    issuDtInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[4]
+    ndNwCtInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[5]
+    updtwLtstInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[6]
+    cmnt1Input.value = JSON.parse(localStorage.getItem("clickedRowData"))[7]
+    cmnt2Input.value = JSON.parse(localStorage.getItem("clickedRowData"))[8]
+    cmnt3Input.value = JSON.parse(localStorage.getItem("clickedRowData"))[9]
+    andrInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[10]
+    nathanInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[11]
+    vndEmlInput.value = JSON.parse(localStorage.getItem("clickedRowData"))[12]
 }
 populateForm()
