@@ -235,11 +235,10 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
                   <span style="color:black; font-size:12pt">&nbsp;</span></p>
                 <p
                   style="font-size:11pt; font-family:Calibri,sans-serif; background-color:white; margin:0; line-height:115%">
-                  <span style="color:black; font-size:12pt">To help us serve you better, please let us know the frequency at which
-                    you update your catalogs.
-                    Also, as part of an ongoing effort to streamline our
-                    ordering process and move towards automated reordering, it would greatly help us if the
-                    guidelines appended below are implemented:</span></p>
+                  <span style="color:black; font-size:12pt"> As data communication is essential to our our partnership, please
+                  let us know the frequency at which you update your catalogs. Also, as part of an ongoing effort to streamline our
+                  ordering process and move towards automated reordering, it would greatly help us if the guidelines appended below
+                  are implemented:</span></p>
                 <p
                   style="font-size:11pt; font-family:Calibri,sans-serif; background-color:white; margin:0; line-height:115%">
                   <span style="color:black; font-size:12pt">&nbsp;</span></p>
