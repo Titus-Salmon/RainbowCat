@@ -387,7 +387,13 @@ router.post('/formPost', (req, res, next) => { // take post results from /formPo
 
   }
   main().then(function () { //.then() method used with async functions; waits until after async function complete, THEN do something
-    res.redirect('/emailSuccess');
+    // res.redirect('/emailSuccess');
+    res.render('vw-autoEmailPassport', {
+      title: 'EMAIL SUCCESSFULLY SENT',
+      username: req.user.name,
+      userEmail: req.user.email,
+      userEmail_stringified: JSON.stringify(req.user.email),
+    });
   }).catch(console.error);
 
 })
